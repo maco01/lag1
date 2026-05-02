@@ -1,0 +1,146 @@
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  background-color: #fff4c2;
+}
+
+.title-block {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+
+.title-main {
+  font-size: 2em;      /* \Large 相当 */
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.title-author {
+  font-size: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+.title-date {
+  font-size: 0.9em;
+  margin-bottom: 1em;
+}
+
+.hr-space {
+  border: none;
+  border-top: 1px solid #000;
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 3em;  /* ← ここが「3行分くらい空ける」部分 */
+}
+
+.legacy-hr {
+  height: 3px;        /* size="3" の代替 */
+  border: none;       /* noshade の代替（影なし） */
+  background-color: #000; /* 単色の線 */
+  margin-top: 1em;
+  margin-bottom: 1em
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.2em;      /* TeX の Large 相当 */
+  font-weight: bold;
+  margin-bottom: 0.5em;  /* \\[0.5em] に相当 */
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 2em;   /* ここで「2行分」ほど空ける */
+}
+ 
+p {
+  text-indent: 1em;        /* 行頭1字下げ（好みで調整） */
+  margin-top: 0;           /* 段落前の余白をなくす */
+  margin-bottom: 0;        /* 段落後の余白をなくす */
+  line-height: 1.5;        /* 行間は普通?やや広め（好みで） */
+  text-align: justify;
+}
+
+.noindent {
+  text-indent: 0;
+}
+
+p + p {
+  margin-top: 0.5em;
+}
+
+.bf {
+  font-weight: bold;
+}
+
+.sep {
+  margin-top: 1em;     /* 上に1行分の余白 */
+  margin-bottom: 1em;  /* 下に1行分の余白 */
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+
+/* 脚注番号（本文側） */
+.footnote-ref {
+  font-size: 0.8em;
+  vertical-align: super;
+  text-decoration: none;
+}
+
+
+/* 最初の (*) だけさらに小さくする */
+.footnote-small {
+  font-size: 0.4em;
+  vertical-align: super; /* 上付きは維持 */
+  text-decoration: none;
+}
+
+
+/* 脚注リスト全体 */
+.footnotes {
+  font-size: 0.85em;     /* 小さめのフォント */
+  margin-top: 3em;       /* 節末にまとめるので上に余白 */
+}
+
+/* 脚注番号のカウンタ初期化 */
+.footnotes ol {
+  counter-reset: footnote;
+}
+
+/* 番号付き脚注（通常の脚注）だけカウンタを進める */
+.footnotes li:not(.symbol):not(.symbol2) {
+  counter-increment: footnote;
+}
+
+/* 番号付き脚注のマーカー */
+.footnotes li:not(.symbol):not(.symbol2)::marker {
+  content: "[*" counter(footnote) "] ";
+}
+
+/* 記号脚注（1つ目） */
+.footnotes li.symbol::marker {
+  content: "(*) ";
+}
+
+/* 記号脚注（2つ目） */
+.footnotes li.symbol2::marker {
+  content: "(**) ";
+}
+
+.pager {
+  text-align: center;
+  margin: 1.5em 0;
+}
+
+.pager a {
+  margin: 0 1em;
+}
+.pager .sep {
+  display: none;
+}
+

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>方程式の代数的解法に関する省察</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg-color: #f7f7f7;
+      --text-color: #222;
+      --accent-color: #444;
+      --border-color: #ccc;
+      --link-color: #005bbb;
+      --link-hover: #003f88;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 2.5rem auto 3rem;
+      padding: 0 1.5rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    header {
+      padding: 2.5rem 1.5rem 1.5rem;
+      text-align: center;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--accent-color);
+    }
+
+    main {
+      padding: 1.5rem;
+    }
+
+    section + section {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+      color: var(--link-hover);
+    }
+
+    .links-inline a + a {
+      margin-left: 1.5rem;
+    }
+
+    
+
+    blockquote {
+      margin: 1rem 0;
+      padding: 0.75rem 1rem;
+      border-left: 4px solid var(--border-color);
+      background: #fafafa;
+      font-size: 0.95rem;
+    }
+
+    blockquote p {
+      margin: 0.25rem 0;
+    }
+
+    .ref-list a {
+      word-break: break-all;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem auto;
+      font-size: 0.95rem;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border-color);
+      padding: 0.6rem 0.75rem;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f0f0f0;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    td:first-child {
+      width: 25%;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    footer {
+      padding: 1.5rem;
+      border-top: 2px solid var(--border-color);
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 2rem 1rem 1rem;
+      }
+
+      main {
+        padding: 1.25rem 1rem;
+      }
+
+      footer {
+        padding: 1.25rem 1rem;
+      }
+
+      td:first-child {
+        width: 35%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <h1>ラグランジュ『方程式の代数的解法に関する省察』</h1>
+    </header>
+
+    <main>
+      <section>
+        <p>
+          18世紀後半に書かれたラグランジュの『R&eacute;flexions sur la r&eacute;solution alg&eacute;brique des &eacute;quations』は，ガロア理論の源流ともみなされる論文で，数学史では有名です。しかし，書籍やネット上に日本語訳もしくは英語訳はないみたいです。そこで AI を使って全訳を試みました。私自身はフランス語は分からないし数学も専門的には知らないので少々心許ないですが，おおむね意味は通る訳になってると思うので公開します。
+        </p>
+
+        <p class="links-inline">
+          通常のページで見たい人はこちら。<br>
+          <a href="lag_sec_1.html">第I節</a>
+          <a href="lag_sec_2.html">第II節</a>
+          <a href="lag_sec_3.html">第III節</a>
+          <a href="lag_sec_4.html">第IV節</a>
+        </p>
+
+        <p>
+          pdf でまとめて見たい人は
+          <a href="lag1.pdf">こちら</a>。
+        </p>
+      </section>
+
+      <section>
+        <p>原文の典拠は次の 2 つです。</p>
+
+        <blockquote class="ref-list">
+          <p>
+            [1]
+            <a href="https://fr.wikisource.org/wiki/M%C3%A9moires_extraits_des_recueils_de_l%E2%80%99Acad%C3%A9mie_royale_de_Berlin/R%C3%A9flexions_sur_la_r%C3%A9solution_alg%C3%A9brique_des_%C3%A9quations">
+              Wikisource
+            </a>
+            <br>
+            [2]
+            <a href="https://gallica.bnf.fr/ark:/12148/bpt6k229222d/f206">
+              フランス国立図書館
+            </a>
+          </p>
+        </blockquote>
+
+        <p>
+          [1] からコピペで Copilot に日本語訳をしてもらい，意味が通っていないところは Google 翻訳や Deeple 翻訳での英語訳を参考に修正しました。[1] にはタイポがあるので，気づいたところは [2] で確認しています。なお，数式の誤りは明らかな誤植であっても [2] のままとし，訳注で指摘することにしました。
+        </p>
+      </section>
+
+      <section>
+        <p>訳語の選び方についてですが，次の語はそれなりに注意を払って一貫性をもたせました。</p>
+
+        <table>
+          <tr>
+            <th>&agrave; priori / &agrave; posteriori</th>
+            <td>
+              本論文のキーワードとも言えますが，そのままカタカナで「アプリオリ/アポステリオリ」とします。本来は「アプリオリ＝経験に先立つ」，「アポステリオリ＝経験に基づく」ですが，ここでは，直接的な計算の後に何かがわかるのがアポステリオリ，ちょっと高尚な一般的原理によって計算する前にわかるのがアプリオリです。
+            </td>
+          </tr>
+          <tr>
+            <th>permutation</th>
+            <td>
+              「置換」という動的な意味と「順列」という静的な意味（ただの並び順）があります。ほとんど「置換」と訳し，一部を「順列」，両方の含みを持たせたいときは「置換（順列）」としました。
+            </td>
+          </tr>
+        </table>
+
+        <p>
+          これ以外の語はその場で意味が通っていればよいとしていて，一貫性はありません。
+        </p>
+
+        <p>
+          「幾何学者」は数学者全般を指す古い用語ですがそのままにしています。また，この時代の「解析学」は代数学を含んでいます。
+        </p>
+
+        <p>
+          文と式のつなぎで「：（コロン）」を多用しています。原文では使われてないので古典の翻訳としてどうかと思いましたが，面倒なので修正はしませんでした。
+        </p>
+
+        <p>
+          〔…〕としているところは原文にない語句を私が補ったものです。ただし，AI はかなりの意訳をするので〔…〕以外のところが原文に忠実というわけではないです。
+        </p>
+      </section>
+
+      <section>
+        <p>
+          原注は(*)で，訳注は [*1]，[*2]，[*3] です。訳注は AI ではなく私の判断で入れています。
+        </p>
+
+        <p>
+          多少手を加えているものの，基本的にはパブリックドメインにあるものを AI で翻訳しただけです。私はこの翻訳文について著作権を行使しません。だれでも自由に、引用・改変・再配布・商用利用を行うことができます。
+クレジット表記も不要です。
+        </p>
+      </section>
+    </main>
+
+
+<footer>
+<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89515850"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89515850" /></noscript>
+</footer>
+  </div>
+</body>
+</html>
