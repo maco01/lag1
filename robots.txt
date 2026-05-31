@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://maco01.github.io/lag1/sitemap.xml
