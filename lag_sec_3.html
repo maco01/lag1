@@ -9,6 +9,26 @@
     <link href="style.css" rel="stylesheet">
     <link rel="canonical" href="https://maco01.github.io/lag1/lag_sec_3.html">
 
+    <script>
+// MathJaxの設定
+window.MathJax = {
+  tex: {
+    tags: 'ams',
+    tagSide: 'left'
+  }
+};
+
+// ページ読み込み完了から1.5秒後にMathJaxのスクリプトを動的注入する
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js";
+    script.async = true;
+    document.head.appendChild(script);
+  }, 1500); // 1500ミリ秒（1.5秒）遅らせる
+});
+</script>
+    
     <!--
     <script>
     MathJax = {
@@ -18,7 +38,6 @@
       }
     };
     </script>
-
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
      -->
 </head>
