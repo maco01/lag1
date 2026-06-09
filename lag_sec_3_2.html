@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+
+    <title>Lagrange『方程式の代数的解法に関する省察』第3節（後半） 日本語訳</title>
+        <meta name="description" content="Lagrange『方程式の代数的解法に関する省察』第3節（後半）の日本語訳。高次方程式の可解性に関する議論を含む節（後半）の翻訳。">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <link rel="canonical" href="https://maco01.github.io/lag1/lag_sec_3.html">
+
+    <script>
+    MathJax = {
+      tex: {
+        tags: 'ams',
+        tagSide: 'left'
+      }
+    };
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+
+
+<body>
+
+<nav class="pager">
+  <a href="lag_sec_3_1.html">← 第III節（前半）</a>
+  <a href="index.html">トップページ</a>
+  <a href="lag_sec_4_1.html">第IV節（前半）→</a>
+</nav>
+
+<hr class="legacy-hr">
+
+
+<p><span class="bf">65</span>．さて，第51項の公式に立ち返ろう．  
+与えられた方程式 (\(a\)) は，方程式 (\(c\))と(\(d\)) から \(y\) を消去した結果として捉えることができるのは明らかである．
+すなわち，\(y\) についての方程式の係数 \({A}, {B}, {C}, \dots\) を与えられたものとし，  
+\(x\) を \(y\) の関数として表す式の係数 \({F}, {G}, \dots\) を未定係数と見なせば，  
+\(y\) を消去して得られる方程式の項と，与えられた方程式の項とを比較することによって，  
+これらの未定係数を決定することができる．
+ただし，その未定係数の数が \(\mu\) 以上でなくてはならないが，
+この条件は，\(\lambda = \frac{\mu}{2}\) または \(\frac{\mu - 1}{2}\) とすれば常に満たされるので，  
+心配する必要はない．
+そして，\(y\) についての方程式が解ける形で与えられていれば（これは無数の方法で可能である），  
+与えられた方程式の完全な解法が得られることになる．
+ただし，困難は未定係数 \({F}, {G}, \dots\) の決定にある．</p>
+
+
+<p>しかしながら，方程式（\(d\)）によって与えられる \(x\) の式を，\(y\) が分子のみに現れる形に書き換えれば，係数の決定と \(y\) の消去はかなり容易になる．このような変形は，\(y\) の適切な多項式を分数
+\[
+\frac{F + G y + H y^{2} + \cdots + K y^{\lambda}}{L + M y + N y^{2} + \cdots + R y^{\lambda}}
+\]
+の分子と分母に掛けることで常に可能であることが，以下のようにしてわかる．</p>
+
+<p>次のように置く．
+\[
+z = L + M y + N y^{2} + \dots + R y^{\lambda}.
+\]
+\(y\) は方程式
+\[
+y^{\mu} + A y^{\mu - 1} + B y^{\mu - 2} + \dots = 0
+\]
+によって定まるので，これを用いて \(y\) を消去することで，\(z\) に関する次数 \(\mu\) の方程式が得られる．それを次のように表す：
+\[
+z^{\mu} + \alpha z^{\mu - 1} + \beta z^{\mu - 2} + \gamma z^{\mu - 3} + \dots - \omega = 0.
+\]
+ここで係数 \( \alpha，\beta，\gamma，\ldots，\omega \) は，係数 \( A，B，C，\ldots \) および \( L，M，N，\ldots \) の既知の関数となる．</p>
+
+<p>したがって，次のように書くことができる：
+\[
+z \left( z^{\mu - 1} + \alpha z^{\mu - 2} + \beta z^{\mu - 3} + \cdots \right) = \omega.
+\]
+これより，\(z\) に多項式
+\[z^{\mu - 1} + \alpha z^{\mu - 2} + \beta z^{\mu - 3} + \cdots\]
+を掛けると \(\omega\)（すなわち，\(y\) に依存しない定数）に等しくなることがわかる．
+したがって，この多項式において \(z\) をその \(y\) による式に戻せば，  
+求めるべき多項式が得られる．
+この多項式は，必要であれば \(y^{\mu}\) より低い冪のみを含むようにできる．  
+というのも，方程式
+\[
+y^{\mu} + A y^{\mu - 1} + \dots = 0
+\]
+を用いれば，\(y^{\mu}\)以上の次数の冪は常に  
+より低い次数の冪に還元できるからである．</p>
+
+<p>このようにして，方程式 (\(d\)) は次の形に帰着される：
+\[
+x = a + b y + c y^2 + \dots + k y^{\mu - 1}.
+\tag{\(k\)}
+\]
+したがって，与えられた方程式 (\(a\))
+\[
+x^{\mu} + m x^{\mu - 1} + n x^{\mu - 2} + \dots = 0
+\]
+は，常に，方程式 (\(c\))
+\[
+y^{\mu} + A y^{\mu - 1} + B y^{\mu - 2} + \dots + V = 0
+\]
+および方程式 (\(k\)) を用いて \(y\) を消去した結果として捉えることができる．
+このとき，係数 \(a, b, c, \dots, k\)（その数は \(\mu\) 個）を未定とすれば，  
+\(y\) を消去して得られる方程式と与えられた方程式を項ごとに比較することで，  
+\(\mu\) 個の条件が得られ，それによって \(a, b, c, \dots\) を決定することができる．</p>
+
+<p>もし \(y\) についての方程式を
+\[
+y^{\mu} + V = 0
+\]
+のように2項だけにすれば，この方法はオイラー氏およびベズー氏の方法に帰着する．  
+この方法については，すでに本論文の中で何度か言及してきた．</p>
+
+<p>ここで述べた詳細は，この方法をチルンハウス氏の方法に結びつけ，  
+両者の類似性と相互の依存関係を示すものである．</p>
+
+<hr class="sep">
+
+<p><span class="bf">66</span>．すべては，与えられた方程式の項と\(y\) を消去して得られる方程式の項とを比較することにより，  
+\(\mu\)個の未知数 \(a, b, c, \dots, k\)を決定することに帰着する．
+まず，この消去後の方程式について，以下の点に注目しよう．
+この方程式は，\(a, b, c, \dots, k\) および \(x\) に関する多項式として表され，  
+第13項で述べた消去理論から容易に導かれるように，
+どの項においてもこれらの文字についての次数は常に\(\mu\)になる．</p>
+
+<p>したがって，この方程式を \(x\) について整理すれば，  
+各項の係数は \(a, b, c, \dots, k\) に関する同次の多項式となり，  
+その次数は \(x^{\mu}, x^{\mu - 1}, x^{\mu - 2}, \dots\) に対して  
+それぞれ \(0, 1, 2, 3, \dots\) となる．</p>
+
+<p>すなわち，第1項 \(x^{\mu}\) の係数は 1 であり，  
+第2項 \(x^{\mu - 1}\) の係数は，\(\alpha, \beta, \gamma, \dots\) を数値係数として，
+\[
+\alpha a + \beta b + \gamma c + \dots
+\]
+の形であり，
+第3項 \(x^{\mu - 2}\) の係数は
+\[
+\alpha a^2 + \beta a b + \gamma b^2 + \delta a c + \dots
+\]
+の形であり，…等々以下同様である．</p>
+
+<p>したがって，第2項の係数を \(m\) に，第3項の係数を \(n\) に，…と順に等置すれば，  
+\(\mu\) 個の未知数 \(a, b, c, \dots, k\) についての \(\mu\) 個の方程式が得られる．
+このうち，第1の方程式は1次式，第2は2次式，第3は3次式，…等々となるので，  
+これらの未知数のうち任意の1つを残して他を消去すれば，  
+その最終方程式の次数は，一般に
+\(1 \cdot 2 \cdot 3 \cdots \mu\)
+となる．
+これはオイラー氏の見解には反するが，ベズー氏が帰納的に見出した結果とは一致している．</p>
+
+<hr class="sep">
+
+<p><span class="bf">67</span>．係数 \(a, b, c, \dots, k\) についての方程式の次数に関する結論をさらに裏づけ，  
+またそれらの方程式が簡約可能となる場合を見極めるために，  
+これらの量 \(a, b, c, \dots\) を与えられた方程式の根 \(x', x'', x''', \dots\) で表す式を 
+アプリオリに求めてみよう．</p>
+
+<p>第54項と同様に，\(u = \sqrt[\mu]{-V}\)と置く．
+また，
+\[y^{\mu} - 1 = 0\]
+の \(\mu\) 個の根を \(1, \alpha, \beta, \gamma, \dots\) とすれば，  
+\[y^{\mu} + V = 0\]
+の \(\mu\) 個の根は
+\(u, \alpha u, \beta u, \gamma u, \dots\)
+となる．
+これらの根を順に方程式 (\(k\)) の \(y\) に代入し，  
+同時に \(x', x'', x''', \dots\) を \(x\) に代入すれば，次の \(\mu\) 個の方程式が得られる：
+\begin{align*}
+x'\,\,&=a+bu+cu^2+du^3+\dots+ku^{\mu-1},\\
+x''\,&=a+\alpha bu+\alpha^2cu^2+\alpha^3du^3+\dots+\alpha^{\mu-1}ku^{\mu-1},\\
+x'''&=a+\beta bu+\beta^2cu^2+\beta^3du^3+\dots+\beta^{\mu-1}ku^{\mu-1},\\
+x^{\mathrm {IV}}&=a+\gamma bu+\,\gamma^2cu^2+\gamma^3du^3+\dots+\gamma^{\mu-1}ku^{\mu-1},\\
+\dots&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
+\end{align*}
+この連立方程式によって，未知数 \(a, b, c, \dots\) を決定することができる．</p>
+
+<p>この決定には何の困難もない．というのも，\(1, \alpha, \beta, \gamma, \dots\) は  
+方程式 \(y^{\mu} - 1 = 0\) の根であり，この方程式は中間項をすべて欠いているので，  
+よく知られているように次の関係が成り立つ：
+\begin{align*}
+&1 + \,\alpha \,+ \,\,\beta \,+\,\gamma \,\,+ \dots = 0,\\
+&1 + \alpha^2 + \beta^2 +\gamma^2 + \dots = 0,\\
+&1 + \alpha^3 + \beta^3 +\gamma^3 + \dots = 0,\\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots
+\end{align*}
+すなわち，すべての根をある同じ冪に上げたものの和は，  
+その指数が \(\mu\) で割り切れない限り常に 0 になる．
+一方，指数が \(\mu\) の倍数である場合には，  
+方程式 \(y^{\mu} - 1 = 0\) から明らかなように，
+\(\alpha^{\mu} = 1, \alpha^{2\mu} = 1, \dots\)
+等々が成り立つ．</p>
+
+<p>したがって，前項<a href="#fn67-1" class="footnote-ref">[*1]</a>の \(\mu\) 個の方程式に，それぞれ対応する \(\mu\) 個の根  
+\(1, \alpha, \beta, \dots\) を \(\mu\) 乗，\((\mu - 1)\) 乗，\((\mu - 2)\) 乗，…，1 乗したものを順に掛けて  
+加え合わせることで，次のような式が得られる：
+\begin{align*}
+&\mu \,a\,\,\,\,\,\,=x'+x''+x'''+x^{\mathrm {IV}}+\dots,\\
+&\mu \,ub\,\,\,=x'+\alpha^{\mu-1}x''+\beta^{\mu-1}x'''+\gamma^{\mu-1}x^{\mathrm {IV}}+\dots,\\
+&\mu \,u^2c=x'+\alpha^{\mu-2}x''+\beta^{\mu-2}x'''+\gamma^{\mu-2}x^{\mathrm {IV}}+\dots,\\
+&\mu \,u^3d=x'+\alpha^{\mu-3}x''+\beta^{\mu-3}x'''+\gamma^{\mu-3}x^{\mathrm {IV}}+\dots,\\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
+\end{align*}</p>
+
+<p>まず，\(a\) は 根\(x', x'', \dots\) をどのように置換しても値が変わらないので，  
+1次方程式<a href="#fn67-2" class="footnote-ref">[*2]</a>によって与えられることがわかる．
+実際，
+\[
+x' + x'' + x''' + \dots = -m
+\]
+であるから，
+\(a = -\frac{m}{\mu}\)
+となる．</p>
+
+<p>一方，\(u b, u^2 c, u^3 d, \dots\) の各量は，一般には，
+\(\mu\) 個の根\(x', x'', x''', \dots\) のあらゆる可能な置換（順列）の数<span style="letter-spacing: -0.2em;">――</span>よく知られているように，\(1 \cdot 2 \cdot 3 \cdots \mu\)である<span style="letter-spacing: -0.2em;">――</span>と同じ次数の方程式に従う．なぜなら，それぞれの置換に対して \(u b, u^2 c, u^3 d, \dots\)は異なる値をとるからである．
+ただし，これらの値の間に何らかの関係があれば，  
+それらを根とする方程式の次数を下げることが可能になる．
+これについて，次に検討することにしよう．</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn67-1">原文は numero precedent．第66項を指しているらしいが，「上記の\(\mu\) 個の方程式」の誤りであろう．</li>
+    <li id="fn67-2">第13項の注釈と同じで「有理式」の意味であろう．</li>
+  </ol>
+</div>
+
+<hr class="sep">
+
+<p><span class="bf">68</span>．そのために，まず次の点に注意しよう：  
+\(u\) は未定のままであるから，任意の値を与えることができる．  
+最も簡単な仮定は，ベズー氏にならって \(u = 1\) とすることである．  
+このとき
+\[
+V = -u^{\mu} = -1
+\]
+である．したがって，この仮定を採用し，さらに次のように置く：
+\[
+k = \frac{a'}{\mu},\quad h = \frac{a''}{\mu}, \dots,\quad b = \frac{a^{(\mu - 1)}}{\mu}.
+\]
+すると，次のようなより簡潔な式が得られる：
+\begin{align*}
+&a'\,\,=x'+\,\alpha \,x''\,+\,\beta\, x'''\,+\,\gamma\, x^{\mathrm {IV}}+\dots,\\
+&a''\,=x'+\alpha^2x''+\beta^2x'''+\gamma^2x^{\mathrm {IV}}+\dots,\\
+&a'''=x'+\alpha^3x''+\beta^3x'''+\gamma^3x^{\mathrm {IV}}+\dots,\\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots,\\
+&a^{(\mu-1)}=x'+\alpha^{\mu-1}x''+\beta^{\mu-1}x'''+\gamma^{\mu-1}x^{\mathrm {IV}}+\dots.
+\end{align*}</p>
+
+<p>ここで \(a'\) の式を検討しよう．方程式 \(y^{\mu} - 1 = 0\) の根を 
+\(1, \alpha, \beta, \gamma, \dots\) と記していたが，これらは  
+\(1, \alpha, \alpha^2, \alpha^3, \dots\) と表すことができるので（第24項），  
+\(\beta = \alpha^2\), \(\gamma = \alpha^3\), … となる． したがって， 
+\(a'\) は次のように書ける：
+\[
+a' = x' + \alpha x'' + \alpha^2 x''' + \alpha^3 x^{\mathrm{IV}} + \dots + \alpha^{\mu - 1} x^{(\mu)}.
+\]
+他の量 \(a'', a''', \dots\) を得るには，この \(a'\) の式において  
+\(\alpha\) をそれぞれ \(\alpha^2, \alpha^3, \dots\) に置き換えればよい．
+このこと，および第56項で示された事実から，まず次のような結論が得られる．
+すなわち，与えられた方程式の次数 \(\mu\) が素数である場合，  
+\(a', a'', a''', \dots\) は同一の方程式の根となる．
+しかし，\(\mu\) が合成数である場合には，そのようにはならない．  
+ゆえに，今後は \(\mu\) が素数である場合とそうでない場合とを  
+区別して扱う必要がある．</p>
+
+<hr class="sep">
+
+<p><span class="bf">69</span>．一般に次のように置こう：
+\[
+t = x' + \alpha x'' + \alpha^2 x''' + \alpha^3 x^{\mathrm{IV}} + \dots + \alpha^{\mu - 1} x^{(\mu)}.
+\]
+そして，\(t\) についての方程式の性質がどのようなものであるべきかを考察する．
+そのために，\(\mu\) 個の根 \(x', x'', \dots\) がとりうる \(1 \cdot 2 \cdot 3 \cdots \mu\) 通りの置換（順列）によって  
+\(t\) がとりうる個々の値をすべて求める．
+この考察では，第55項と同様の方法を用いる．  
+まず \(x'\) を固定し，残りの \(\mu - 1\) 個の変数の位置を変える．  
+これらは \(1 \cdot 2 \cdot 3 \cdots (\mu - 1)\) 通りの置換（順列）をもつので，  
+\(t\) の特定の値 \(t', t'', t''', \dots\) がそれぞれ得られる．
+次に，これらの各式において \(x'\) の位置を順に \(x'', x''', \dots\) の位置に移動させることで，  
+求めるべき \(1 \cdot 2 \cdot 3 \cdots \mu\) 個のすべての値が得られ，  
+それらが \(t\) についての方程式の根となる．</p>
+
+<p>ところが，これらすべての値を網羅するにはは，\(t', t'', t''', \dots\) のそれぞれに
+\(\alpha, \alpha^2, \alpha^3, \dots, \alpha^{\mu - 1}\) を順次掛けていけばよいことが容易にわかる．
+したがって，\(t\) についての方程式の根は次のように表される：
+\[
+\begin{array}{lllll}
+t', & \alpha t', & \alpha^2 t', & \alpha^3 t', \dots, & \alpha^{\mu - 1} t', \\
+t'', & \alpha t'', & \alpha^2 t'', & \alpha^3 t'', \dots, & \alpha^{\mu - 1} t'', \\
+t''', & \alpha t''', & \alpha^2 t''', & \alpha^3 t''', \dots, & \alpha^{\mu - 1} t''', \\
+\dots&\dots&\dots&\,\,\dots\,\,\,\,\,\dots&\dots
+\end{array}
+\]
+ここから，\(t\) についての方程式には，\(t\) の冪乗のうち，指数が \(\mu\) の倍数のものしか含まれないことが容易に結論づけられる．</p>
+
+<p>したがって，\(t^{\mu} = \theta\) とおけば，
+\[
+\theta = \left( x' + \alpha x'' + \alpha^2 x''' + \alpha^3 x^{\mathrm{IV}} + \dots \right)^{\mu}
+\]
+となり，\(\theta\) についての方程式は \(1 \cdot 2 \cdot 3 \cdots (\mu - 1)\) 次となる．
+この方程式の根は，\(x'\) を除いた \(\mu - 1\) 個の根 \(x'', x''', \dots\) の置換によって  
+生じる \(\theta\) の諸値である．</p>
+
+<p>この結論は，\(\mu\) がどのような数であっても成り立つ．  
+以下では，\(\mu\) が素数である場合とそうでない場合とを分けて考察することにする．</p>
+
+<hr class="sep">
+
+<p><span class="bf">70</span>．まず，指数 \(\mu\) が素数であるとしよう．  
+このとき，\(\theta\) のすべての値を求めるには，  
+\(\mu - 2\) 個の根\(x''', x^{\mathrm{IV}}, \dots\) の間の置換によって生じる値を調べれば十分である．  
+これらの置換（順列）の数は \(1 \cdot 2 \cdot 3 \cdots (\mu - 2)\) 通りである．
+そして，それぞれの \(\theta\) の値の式において，\(\alpha\) を順次
+\(\alpha^2, \alpha^3, \dots, \alpha^{\mu - 1}\) に置き換えていけばよい．  
+このことは，第56項と同様の議論によって確認できる．</p>
+
+<p>したがって（第57項），\(\alpha\) を \(\alpha^2, \alpha^3, \dots, \alpha^{\mu - 1}\) に  
+置き換えることで得られる \(\mu - 1\) 個の \(\theta\) の値を根とする  
+\((\mu - 1)\) 次方程式
+\[
+\theta^{\mu - 1} - T \theta^{\mu - 2} + U \theta^{\mu - 3} - X \theta^{\mu - 4} + \dots = 0
+\]
+を考えると，
+その係数 \(T, U, X, \dots\) はそれぞれ，次数 \(1 \cdot 2 \cdot 3 \cdots (\mu - 2)\) の方程式によって与えられる．
+つまり，\(\theta\) についての \(1 \cdot 2 \cdot 3 \cdots (\mu - 1)\) 次の方程式は， 
+ある1つの\(1 \cdot 2 \cdot 3 \cdots (\mu - 2)\) 次の方程式を解くことを通じて， 
+それぞれが \((\mu - 1)\) 次である
+\(1 \cdot 2 \cdot 3 \cdots (\mu - 2)\) 個のの方程式へと分解されるのである．
+なぜなら，そのような方程式によって\(T, U, X, \dots\) のうちどれか1つを求めれば，
+他の係数もすべて容易に得られるからである．</p>
+
+<hr class="sep">
+
+<p><span class="bf">71</span>．方程式
+\[\theta^{\mu - 1} - T \theta^{\mu - 2} + U \theta^{\mu - 3} - X \theta^{\mu - 4} + \dots = 0\]  
+の \(\mu - 1\) 個の根は，\(\theta\)，すなわち， 
+\[
+\left(x' + \alpha x'' + \alpha^2 x''' + \dots \right)^{\mu}
+\]  
+において，\(\alpha\) を順次 \(\alpha^2, \alpha^3, \dots, \alpha^{\mu - 1}\) に置き換えたときに得られる値である．よって，第68項で述べたことから，この方程式の根はまさに  
+\(a', a'', a''', \dots\) の \(\mu\) 乗を表していることがわかる．</p>
+
+<p>ゆえに，これらの根を \(\theta', \theta'', \theta''', \dots, \theta^{(\mu - 1)}\) と記せば，次のようになる．
+\[
+b = \frac{\sqrt[\mu]{\theta'}}{\mu},\quad
+c = \frac{\sqrt[\mu]{\theta''}}{\mu},\quad
+d = \frac{\sqrt[\mu]{\theta'''}}{\mu}, \dots.
+\]</p>
+
+<p>さて，いま議論している方程式を容易に得るために，  
+多項式
+\[
+x' + \alpha x'' + \alpha^2 x''' + \alpha^3 x^{\mathrm{IV}} + \dots
+\]
+を \(\mu\) 乗しよう．\(\alpha^{\mu} = 1\), \(\alpha^{\mu - 1}\,^{\text{[*1]}} = \alpha\), … であることに注意して整理すれば，  
+\(\theta\) は次の形をとる．
+\[
+\theta = \xi + \alpha \xi' + \alpha^2 \xi'' + \alpha^3 \xi''' + \dots + \alpha^{\mu - 1} \xi^{(\mu - 1)}.
+\]
+ここで，\(\xi, \xi', \xi'', \dots\) は \(\alpha\) を含まず， \(x', x'', x''', \dots\) のみの関数である．
+そこで，\(\alpha\) を \(y\) に置き換え，  
+第57項の方程式 (\(g\)) を用いて \(y\) を消去すればよい．
+ただし，通常の消去法を用いたくない場合には，次のような方法をとることもできる．</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn71-1">正しくは \(\alpha^{\mu +1}\)．</li>
+  </ol>
+</div>
+
+<hr class="sep">
+
+<p><span class="bf">72</span>．\(\beta = \alpha^2\), \(\gamma = \alpha^3\), … であることから（第68項），次のようになる：
+\begin{align*}
+&\theta'\,\,=\xi+\alpha \xi'+\alpha^2 \xi''+\alpha^3 \xi'''+\dots+\alpha^{\mu-1}\xi^{(\mu-1)},\\
+&\theta''\,=\xi+\beta \xi'+\beta^2 \xi''+\beta^3 \xi'''+\dots+\beta^{\mu-1}\xi^{(\mu-1)},\\
+&\theta'''=\xi+\gamma \xi'+\gamma^2 \xi''+\gamma^3 \xi'''+\dots+\gamma^{\mu-1}\xi^{(\mu-1)},\\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
+\end{align*}
+ここで，\(\alpha, \beta, \gamma, \dots\) は \(1\) とともに方程式 \(y^{\mu} - 1 = 0\) の根である．</p>
+
+<p>\(\theta\) についての方程式の根がこのように与えられているので，  
+それらを用いて係数 \(T, U, X, \dots\) を求めることができる．
+なぜなら，よく知られている次の関係があるからである：
+\begin{align*}
+&T=\theta'+\theta''+\theta'''+\dots,\\
+&U=\theta'\theta''+\theta'\theta'''+\dots,\\
+&\dots\dots\dots\dots\dots\dots\dots.
+\end{align*}</p>
+
+<p>この決定を容易にするために，\(\theta', \theta'', \theta''', \dots\) の  
+和，2乗の和，3乗の和，…，\(\mu\) 乗の和を求めるとよい．
+そのために，次の量を計算に導入するのが有用である：
+\[
+\theta^0 = \xi + \xi' + \xi'' + \xi''' + \dots + \xi^{(\mu - 1)}.
+\]
+このようにして，\(\theta^0, \theta', \theta'', \dots\) が  
+方程式 \(y^{\mu} - 1 = 0\) の根 \(1, \alpha, \beta, \dots\) に対応するようにする．</p>
+
+<p>さて，多項式
+\[
+\xi + \alpha \xi' + \alpha^2 \xi'' + \alpha^3 \xi''' + \dots + \alpha^{\mu - 1} \xi^{(\mu - 1)}
+\]
+を2乗，3乗，…と累乗し，\(\alpha^{\mu}\) を \(1\), \(\alpha^{\mu + 1}\) を \(\alpha\), …等々に置き換えたあと，\(\alpha\) を含まない項を  
+\(\xi_2, \xi_3, \xi_4, \dots\)と記す．
+\(1, \alpha, \beta, \gamma, \dots\) の性質（第67項）により，  
+\(\theta^0, \theta', \theta'', \dots\) の和，2乗の和，3乗の和，…等々が  
+それぞれ \(\mu \xi, \mu \xi_2, \mu \xi_3, \dots\) に等しくなることは容易にわかる．</p>
+
+<p>ところで，
+\[
+\theta^0 = \xi + \xi' + \xi'' + \xi''' + \dots + \xi^{(\mu - 1)} = \left[x' + x'' + x''' + \dots + x^{(\mu - 1)}\,^{\text{[*1]}}\right]^{\mu} = (-m)^{\mu}.
+\]
+したがって，\(\mu \xi, \mu \xi_2, \mu \xi_3, \dots\) から  
+それぞれ \((-m)^{\mu}, (-m)^{2\mu}, (-m)^{3\mu}, \dots\) を引いた差
+\[
+\mu \xi - (-m)^{\mu},\quad \mu \xi_2 - (-m)^{2\mu},\quad \mu \xi_3 - (-m)^{3\mu}, \dots
+\]
+は，\(\mu-1\) 個の根 \(\theta', \theta'', \theta''', \dots\) の和，およびそれらの2乗の和，3乗の和，…等々に等しい．
+したがって，よく知られた公式<a href="#fn72-2" class="footnote-ref">[*2]</a>により次のようになる：
+\[
+\begin{aligned}
+&T = \mu \xi - (-m)^{\mu}, \\
+&U = \frac{T \left[\mu \xi - (-m)^{\mu} \right]}{2} - \frac{\mu \xi_2 - (-m)^{2\mu}}{2}, \\
+&X = \frac{U \left[ \mu \xi - (-m)^{\mu} \right]}{3} - \frac{T \left[ \mu \xi_2 - (-m)^{2\mu} \right]}{3} + \frac{\mu \xi_3 - (-m)^{3\mu}}{3}, \\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
+\end{aligned}
+\]</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn72-1">最後の項は\(x^{(\mu)}\)が正しい．</li>
+    <li id="fn72-2">「ニュートンの恒等式」とか「ジラール-ニュートンの公式」といわれるもの．</li>
+  </ol>
+</div>
+
+<hr class="sep">
+
+<p><span class="bf">73</span>．さて，\(T, U, X, \dots\) の各式において根 \(x', x'', x''', \dots\) のあらゆる可能な置換を考えても，  
+それぞれの量の異なる値は \(1 \cdot 2 \cdot 3 \cdots (\mu - 2)\) 個しか得られない．  
+これらの値は，\(\mu - 2\) 個の根\(x''', x^{\mathrm{IV}}, \dots\) の置換だけから生じるものである．
+したがって，その数だけ \(\theta\) についての方程式
+\[
+\theta^{\mu - 1} - T \theta^{\mu - 2} + U \theta^{\mu - 3} - \dots = 0
+\]
+があり，これらの方程式をすべて掛け合わせれば，\(\theta\) についての  
+次数 \(1 \cdot 2 \cdot 3 \cdots (\mu - 1)\) の方程式が得られる． 
+そして，その方程式のすべての係数は，与えられた方程式の係数 \(m, n, p, \dots\) の  
+有理式として定まる．</p>
+
+<p>このようにして \(\theta\) についての方程式が得られたならば，  
+それを上記のような \(\mu - 1\) 次方程式で割ることにより，  
+\(T, U, X, \dots\) の間に \(\mu - 1\) 個の条件式が得られる．
+これらを用いれば，たとえば \(U, X, \dots\) を \(T\) の式として表すことができ，  
+\(T\) についての最終方程式が得られるが，その次数は  
+\(1 \cdot 2 \cdot 3 \cdots (\mu - 2)\) を超えることはない．</p>
+
+<p>実際，\(T\) は \(1 \cdot 2 \cdot 3 \cdots (\mu - 2)\) 通りの異なる値しかとり得ないので，簡略のため
+\[
+\nu = 1 \cdot 2 \cdot 3 \cdots (\mu - 2)
+\]
+とおき，\(T\)の値を \(T', T'', T''', \dots, T^{(\nu)}\) とすれば，\(T\) についての方程式は次の形となる：
+\[
+T^{\nu} - \varpi T^{\nu - 1} + \rho T^{\nu - 2} - \sigma T^{\nu - 3} + \dots = 0.
+\]
+この方程式の根は \(T', T'', T''', \dots\) であり，もし望むなら，  
+それらの値から係数 \(\varpi, \rho, \sigma, \dots\) を  
+アプリオリに決定することも可能である．</p>
+
+<p>このようにして，\(\theta\) についての次数 \(\nu (\mu - 1)\) の方程式に頼ることなく，  
+\(T\) についての方程式を直接得ることができる．
+また，この\(\theta\)についての方程式とは独立に，\(T\) を用いて他の係数 \(U, X, \dots\) を  
+求めることもできる．この点については第IV節で改めて示すことにする．</p>
+
+<p>以上の考察から結論されるのは，オイラー氏およびベズー氏の方法は，  
+必然的に次数 \(1 \cdot 2 \cdot 3 \cdots (\mu - 1)\) の簡約方程式を導くということである．
+そして，与えられた方程式の次数 \(\mu\) が素数であるとき，  
+この簡約方程式は，次数が \(\mu - 1\) 次の
+\(1 \cdot 2 \cdot 3 \cdots (\mu - 2)\) 個の因数に分解される．</p>
+
+<p>この結果は，チルンハウス氏の方法によって得られるものと一致しており，  
+したがって第58項で述べたのと同様の考察をここにも適用することができる．</p>
+
+<hr class="sep">
+
+<p><span class="bf">74</span>．これまでの理論を具体例によって明らかにするために，  
+5次方程式
+\[
+x^5 + m x^4 + n x^3 + p x^2 + q x + r = 0
+\]
+を取り上げることにしよう．
+その根を \(x', x'', x''', x^{\mathrm{IV}}, x^{\mathrm{V}}\) とする．</p>
+
+<p>ここで，次のように仮定する：
+\[
+x = a + b y + c y^2 + d y^3 + e y^4.
+\]
+そして，もとの方程式は，この式と，2項からなる方程式
+\[
+y^5 + V = 0,
+\]
+あるいは，第68項と同様に \(V = -1\) とおけば 
+\[y^5 - 1 = 0\]  
+との組から〔\(y\)を消去して〕得られるものとみなす．</p>
+
+<p>オイラー氏およびベズー氏は，この問題に関する彼らの論文の中で，  
+\(m = 0\) および \(a = 0\) の場合に \(y\) を消去して得られる最終方程式を与えている．
+それを与えられた方程式と比較することで，係数 \(b, c, d, e\) を決定するために必要な  
+4つの方程式が得られる．
+しかし，これらの4つの方程式から，含まれている4つの未知数のうち任意の3つを消去して  
+得られるべき結果については，その消去に要する膨大な労力のために，  
+これらの学者たちは与えていない．
+一方，先に示した方法は，この結果をアプリオリに求める手段を提供するものであり，  
+以下にその試みを示すことにする．</p>
+
+<p>まず，
+\[
+a = -\frac{m}{5}
+\]
+であり（第67項），ついで，
+\[
+b = \frac{\sqrt[5]{\theta'}}{5},\quad
+c = \frac{\sqrt[5]{\theta''}}{5},\quad
+d = \frac{\sqrt[5]{\theta'''}}{5},\quad
+e = \frac{\sqrt[5]{\theta^{\mathrm{IV}}}}{5}
+\]
+となる（第71項）．ここで，\(\theta', \theta'', \theta''', \theta^{\mathrm{IV}}\) は方程式
+\[
+\theta^4 - T \theta^3 + U \theta^2 - X \theta + Y = 0
+\]
+の4つの根であり，この方程式は，\(\theta\) についての24次方程式の因数となるものである．</p>
+
+<p>さて，係数 \(T, U, \dots\) の値を得るには，  
+多項式
+\[
+x' + \alpha x'' + \alpha^2 x''' + \alpha^3 x^{\mathrm{IV}} + \alpha^4 x^{\mathrm{V}}
+\]
+を5乗する必要がある．\(\alpha^5 = 1\) であることから，  
+次の形の多項式が得られる：
+\[
+\xi + \alpha \xi' + \alpha^2 \xi'' + \alpha^3 \xi''' + \alpha^4 \xi^{\mathrm{IV}}.
+\]
+ここで，
+\begin{align*}
+\xi &= x'^5 + x''^5 + x'''^5 + x^{\mathrm{IV}5} + x^{\mathrm{V}5} + 120 x' x'' x''' x^{\mathrm{IV}} x^{\mathrm{V}} \\
+&\quad + 20 \big[ x'^3(x'' x^{\mathrm{V}} + x''' x^{\mathrm{IV}}) + x''^3(x' x''' + x^{\mathrm{IV}} x^{\mathrm{V}}) + x'''^3(x' x^{\mathrm{V}} + x'' x^{\mathrm{IV}}) \\
+&\qquad\qquad\qquad\qquad\qquad\qquad + x^{\mathrm{IV}3}(x' x'' + x''' x^{\mathrm{V}}) + x^{\mathrm{V}3}(x' x^{\mathrm{IV}} + x'' x''') \big] \\
+&\quad + 30 \big[ x'(x''^2 x^{\mathrm{V}2} + x'''^2 x^{\mathrm{IV}2}) + x''(x'^2 x'''^2 + x^{\mathrm{IV}2} x^{\mathrm{V}2}) + x'''(x'^2 x^{\mathrm{V}2} + x''^2 x^{\mathrm{IV}2}) \\
+&\qquad\qquad\qquad\qquad\qquad\qquad + x^{\mathrm{IV}}(x'^2 x''^2 + x'''^2 x^{\mathrm{V}2}) + x^{\mathrm{V}}(x'^2 x^{\mathrm{IV}2} + x''^2 x'''^2) \big],\\
+\xi' &= 5(x'^4 x'' + x''^4 x''' + x'''^4 x^{\mathrm{IV}} + x^{\mathrm{IV}4} x^{\mathrm{V}} + x^{\mathrm{V}4} x') + \dots,\\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
+\end{align*}</p>
+
+<p>まず，
+\[
+T = 5 \xi + m^5
+\]
+である．ここで \(\xi\) の式を検討すると，  
+\[
+x'^5 + x''^5 + x'''^5 + x^{\mathrm{IV}5} + x^{\mathrm{V}5} + 120 x' x'' x''' x^{\mathrm{IV}} x^{\mathrm{V}}
+\]
+の部分は，もとの方程式の係数 \(m, n, \dots\) によって直ちに表すことができる．</p>
+
+<p>実際，この部分の値は次のようになることが容易にわかる：
+\[
+-m^5 + 5 m^3 n - 5 m^2 p + 5 m (q - n^2) + 5 n p - 125 r.
+\]</p>
+
+<p>簡略のために次のように置く：
+\[
+\begin{aligned}
+z &= 2\left[
+x'^3(x''x^{\mathrm{V}} + x'''x^{\mathrm{IV}}) + x''^3(x'x''' + x^{\mathrm{IV}}x^{\mathrm{V}}) + x'''^3(x''x^{\mathrm{IV}} + x'x^{\mathrm{V}}) \right. \\
+&\quad\qquad\qquad\qquad\qquad\qquad + \left.x^{\mathrm{IV}3}(x'''x^{\mathrm{V}} + x'x'') + x^{\mathrm{V}3}(x'x^{\mathrm{IV}} + x''x''')\right] \\
+&\quad + 3\left[
+x'(x''^2 x^{\mathrm{V}2} + x'''^2 x^{\mathrm{IV}2}) + x''(x'^2 x'''^2 + x^{\mathrm{IV}2} x^{\mathrm{V}2}) + x'''(x''^2 x^{\mathrm{IV}2} + x'^2 x^{\mathrm{V}2}) \right. \\
+&\quad\quad\qquad\qquad\qquad\qquad\qquad +\left. x^{\mathrm{IV}}(x'''^2 x^{\mathrm{V}2} + x'^2 x''^2) + x^{\mathrm{V}}(x'^2 x^{\mathrm{IV}2} + x''^2 x'''^2)
+\right].
+\end{aligned}
+\]
+このとき，
+\[
+T = 50z - 4m^5 + 25\left[m^3 n - m^2 p + m(q - n^2) + n p - 25 r\right].
+\]
+そして，この量 \(z\) は，次の6つの値しかとらないことがわかる．  
+それらを \(z', z'', z''', z^{\mathrm{IV}}, z^{\mathrm{V}}, z^{\mathrm{VI}}\) と記す．
+\[\begin{split}
+z'&=2[x^{\prime\,3}(x''x^{\mathrm {V}}+x'''x^{\rm {IV}})+x^{\prime\prime\,3}(x'x'''+x^{\rm {IV}}x^{\mathrm {V}})+x^{\prime\prime\prime\,3}(x''x^{\rm {IV}}+x'x^{\rm {V}})\\
+&\qquad\qquad\qquad\qquad\qquad\,\, +x^{\mathrm {IV}\,3}(x'''x^{\rm {V}}+x'x'')+x^{\mathrm {V}\,3}(x'x^{\mathrm {IV}}+x''x''')]\\
+&\quad+3[x'(x^{\prime\prime\,2}x^{\mathrm {V}\,2}+x^{\prime\prime\prime\,2}x^{\mathrm {IV}\,2})+x''(x^{\prime\,2}x^{\prime\prime\prime\,2}+x^{\mathrm {IV}\,2}x^{\rm {V}\,2})+x'''(x^{\prime\prime\,2}x^{\rm {IV}\,2}+x^{\prime\,2}x^{\mathrm {V}\,2})\\
+&\qquad\qquad\qquad\qquad\qquad\qquad +x^{\rm {IV}}(x^{\prime\prime\prime\,2}x^{\rm {V}\,2}+x^{\prime\,2}x^{\prime\prime\,2})+x^{\rm {V}}(x^{\prime\,2}x^{\rm {IV}\,2}+x^{\prime\prime\,2}x^{\prime\prime\prime\,2})],
+\end{split}\]
+\[\begin{split}
+z''&=2[x^{\prime\,3}(x''x^{\rm {IV}}+x'''x^{\rm {V}})+x^{\prime\prime\,3}(x'x'''+x^{\rm {IV}}x^{\rm {V}})+x^{\prime\prime\prime\,3}(x''x^{\rm {V}}+x'x^{\rm {IV}})\\
+&\qquad\qquad\qquad\qquad\qquad\,\, +x^{\rm {V}\,3}(x'''x^{\rm {IV}}+x'x'')+x^{\rm {IV}\,3}(x'x^{\rm {V}}+x''x''')]\\
+&\quad+3[x'(x^{\prime\prime\,2}x^{\mathrm {IV}\,2}+x^{\prime\prime\prime\,2}x^{\rm {V}\,2})+x''(x^{\prime\,2}x^{\prime\prime\prime\,2}+x^{\mathrm {IV}\,2}x^{\mathrm {V}\,2})+x'''(x^{\prime\prime\,2}x^{\rm {V}\,2}+x^{\prime\,2}x^{\rm {IV}\,2})\\
+&\qquad\qquad\qquad\qquad\qquad\qquad+x^{\mathrm {V}}(x^{\prime\prime\prime\,2}x^{\rm {IV}\,2}+x^{\prime\,2}x^{\prime\prime\,2})+x^{\rm {IV}}(x^{\prime\,2}x^{\mathrm {V}\,2}+x^{\prime\prime\,2}x^{\prime\prime\prime\,2})],
+\end{split}\]
+\[\begin{split}
+z'''&=2[x^{\prime\,3}(x''x^{\mathrm {V}}+x'''x^{\mathrm {IV}})+x^{\prime\prime\,3}(x'x^{\mathrm {IV}}+x'''x^{\rm {V}})+x^{\mathrm {IV}\,3}(x''x'''+x'x^{\rm {V}})\\
+&\qquad\qquad\qquad\qquad\qquad\,\,+x^{\prime\prime\prime\,3}(x^{\mathrm {IV}}x^{\mathrm {V}}+x'x'')+x^{\mathrm {V}\,3}(x'x'''+x''x^{\mathrm {IV}})]\\
+&\quad+3[x'(x^{\prime\prime\,2}x^{\rm {V}\,2}+x^{\prime\prime\prime\,2}x^{\rm {IV}\,2})+x''(x^{\prime\,2}x^{\rm {IV}\,2}+x^{\prime\prime\prime\,2}x^{\rm {V}\,2})+x^{\rm {IV}}(x^{\prime\prime\,2}x^{\prime\prime\prime\,2}+x^{\prime\,2}x^{\rm {V}\,2})\\
+&\qquad\qquad\qquad\qquad\qquad\qquad+x'''(x^{\rm {IV}\,2}x^{\rm {V}\,2}+x^{\prime\,2}x^{\prime\prime\,2})+x^{\rm {V}}(x^{\prime\,2}x^{\prime\prime\prime\,2}+x^{\prime\prime\,2}x^{\rm {IV}\,2})],
+\end{split}\]
+\[\begin{split}
+z^{\rm {IV}}&=2[x^{\prime\,3}(x''x'''+x^{\rm {IV}}x^{\rm {V}})+x^{\prime\prime\,3}(x'x^{\rm {IV}}+x'''x^{\rm {V}})+x^{\rm {IV}\,3}(x''x^{\rm {V}}+x'x''')\\
+&\qquad\qquad\qquad\qquad\qquad\,\,+x^{\rm {V}\,3}(x'''x^{\rm {IV}}+x'x'')+x^{\prime\prime\prime\,3}(x'x^{\rm {V}}+x''x^{\rm {IV}})]\\
+&\quad+3[x'(x^{\prime\prime\,2}x^{\prime\prime\prime\,2}+x^{\rm {IV}\,2}x^{\rm {V}\,2})+x''(x^{\prime\,2}x^{\rm {IV}\,2}+x^{\prime\prime\prime\,2}x^{\rm {V}\,2})+x^{\rm {IV}}(x^{\prime\prime\,2}x^{\rm {V}\,2}+x^{\prime\,2}x^{\prime\prime\prime\,2})\\
+&\qquad\qquad\qquad\qquad\qquad\qquad +x^{\rm {V}}(x^{\prime\prime\prime\,2}x^{\rm {IV}\,2}+x^{\prime\,2}x^{\prime\prime\,2})+x'''(x^{\prime\,2}x^{\rm {V}\,2}+x^{\prime\prime\,2}x^{\rm {IV}\,2})],
+\end{split}\]
+\[\begin{split}
+z^{\rm {V}}&=2[x^{\prime\,3}(x''x'''+x^{\rm {IV}}x^{\rm {V}})+x^{\prime\prime\,3}(x'x^{\rm {V}}+x'''x^{\rm {IV}})+x^{\rm {V}\,3}(x''x^{\rm {IV}}+x'x''')\\
+&\qquad\qquad\qquad\qquad\qquad\,\, +x^{\rm {IV}\,3}(x'''x^{\rm {V}}+x'x'')+x^{\prime\prime\prime\,3}(x'x^{\rm {IV}}+x''x^{\rm {V}})]\\
+&\quad+3[x'(x^{\prime\prime\,2}x^{\prime\prime\prime\,2}+x^{\rm {IV}\,2}x^{\rm {V}\,2})+x''(x^{\prime\,2}x^{\rm {V}\,2}+x^{\prime\prime\prime\,2}x^{\rm {IV}\,2})+x^{\rm {V}}(x^{\prime\prime\,2}x^{\rm {IV}\,2}+x^{\prime\,2}x^{\prime\prime\prime\,2})\\
+&\qquad\qquad\qquad\qquad\qquad\qquad+x^{\rm {IV}}(x^{\prime\prime\prime\,2}x^{\rm {V}\,2}+x^{\prime\,2}x^{\prime\prime\,2})+x'''(x^{\prime\,2}x^{\rm {IV}\,2}+x^{\prime\prime\,2}x^{\rm {V}\,2})],
+\end{split}\]
+\[\begin{split}
+z^{\rm {VI}}&=2[x^{\prime\,3}(x''x^{\rm {IV}}+x'''x^{\rm {V}})+x^{\prime\prime\,3}(x'x^{\rm {V}}+x'''x^{\rm {IV}})+x^{\rm {V}\,3}(x''x'''+x'x^{\rm {IV}})\\
+&\qquad\qquad\qquad\qquad\qquad\,\,+x^{\prime\prime\prime\,3}(x^{\rm {IV}}x^{\rm {V}}+x'x'')+x^{\rm {IV}\,3}(x'x'''+x''x^{\rm {V}})]\\
+&\quad+3[x'(x^{\prime\prime\,2}x^{\rm {IV}\,2}+x^{\prime\prime\prime\,2}x^{\rm {V}\,2})+x''(x^{\prime\,2}x^{\rm {V}\,2}+x^{\prime\prime\prime\,2}x^{\rm {IV}\,2})+x^{\rm {V}}(x^{\prime\prime\,2}x^{\prime\prime\prime\,2}+x^{\prime\,2}x^{\rm {IV}\,2})\\
+&\qquad\qquad\qquad\qquad\qquad\qquad +x'''(x^{\rm {IV}\,2}x^{\rm {V}\,2}+x^{\prime\,2}x^{\prime\prime\,2})+x^{\rm {IV}}(x^{\prime\,2}x^{\prime\prime\prime\,2}+x^{\prime\prime\,2}x^{\rm {V}\,2})].
+\end{split}\]
+実際，これらの式において根\(x', x'', x''', \dots\) の間で任意の置換を施しても，  
+常に同じ式が再現されることがわかる．
+したがって，6つの量 \(z', z'', z''', \dots\) は，必然的に6次方程式の根となり，その方程式を
+\[
+z^6 - A z^5 + B z^4 - C z^3 + D z^2 - E z + F = 0
+\]
+とすれば，係数 \(A, B, \dots\) は，既知の規則によって定めることができる．</p>
+
+<p>たとえば，次のようにして係数 \(A\) を得ることができる：
+\[
+A = z' + z'' + z''' + z^{\mathrm{IV}} + z^{\mathrm{V}} + z^{\mathrm{VI}},
+\]
+すなわち，
+\[
+\begin{aligned}
+A &= 4x'^3(x''x''' + x''x^{\mathrm{IV}} + x''x^{\mathrm{V}} + x'''x^{\mathrm{IV}} + x'''x^{\mathrm{V}} + x^{\mathrm{IV}}x^{\mathrm{V}}) \\
+&\quad + 4x''^3(x'x''' + x'x^{\mathrm{IV}} + x'x^{\mathrm{V}} + x'''x^{\mathrm{IV}} + x'''x^{\mathrm{V}} + x^{\mathrm{IV}}x^{\mathrm{V}}) \\
+&\quad + 4x'''^3(x'x'' + x'x^{\mathrm{IV}} + x'x^{\mathrm{V}} + x''x^{\mathrm{IV}} + x''x^{\mathrm{V}} + x^{\mathrm{IV}}x^{\mathrm{V}}) \\
+&\quad + 4x^{\mathrm{IV}3}(x'x'' + x'x''' + x'x^{\mathrm{V}} + x''x''' + x''x^{\mathrm{V}} + x'''x^{\mathrm{V}}) \\
+&\quad + 4x^{\mathrm{V}3}(x'x'' + x'x''' + x'x^{\mathrm{IV}} + x''x''' + x''x^{\mathrm{IV}} + x'''x^{\mathrm{IV}}) \\
+&\quad + 6x'\left[(x''x''')^2 + (x''x^{\mathrm{IV}})^2 + (x''x^{\mathrm{V}})^2 + (x'''x^{\mathrm{IV}})^2 + (x'''x^{\mathrm{V}})^2 + (x^{\mathrm{IV}}x^{\mathrm{V}})^2\right] \\
+&\quad + 6x''\left[(x'x''')^2 + (x'x^{\mathrm{IV}})^2 + (x'x^{\mathrm{V}})^2 + (x'''x^{\mathrm{IV}})^2 + (x'''x^{\mathrm{V}})^2 + (x^{\mathrm{IV}}x^{\mathrm{V}})^2\right] \\
+&\quad + 6x'''\left[(x'x'')^2 + (x'x^{\mathrm{IV}})^2 + (x'x^{\mathrm{V}})^2 + (x''x^{\mathrm{IV}})^2 + (x''x^{\mathrm{V}})^2 + (x^{\mathrm{IV}}x^{\mathrm{V}})^2\right] \\
+&\quad + 6x^{\mathrm{IV}}\left[(x'x'')^2 + (x'x''')^2 + (x'x^{\mathrm{V}})^2 + (x''x''')^2 + (x''x^{\mathrm{V}})^2 + (x'''x^{\mathrm{V}})^2\right] \\
+&\quad + 6x^{\mathrm{V}}\left[(x'x'')^2 + (x'x''')^2 + (x'x^{\mathrm{IV}})^2 + (x''x''')^2 + (x''x^{\mathrm{IV}})^2 + (x'''x^{\mathrm{IV}})^2\right].
+\end{aligned}
+\]
+一方，もとの方程式においては，
+\[
+\begin{aligned}
+-m &= x' + x'' + x''' + x^{\mathrm{IV}} + x^{\mathrm{V}}, \\
+n &= x'x'' + x'x''' + x'x^{\mathrm{IV}} + x'x^{\mathrm{V}} + x''x''' + x''x^{\mathrm{IV}} + x''x^{\mathrm{V}} + x'''x^{\mathrm{IV}} + x'''x^{\mathrm{V}} + x^{\mathrm{IV}}x^{\mathrm{V}}.
+\end{aligned}
+\]
+したがって，\(A\) の値の最初の5項は次のように書き換えられる：
+\[
+\begin{aligned}
+&4n(x'^3 + x''^3 + x'''^3 + x^{\mathrm{IV}3} + x^{\mathrm{V}3}) \\
+&\quad\quad + 4m(x'^4 + x''^4 + x'''^4 + x^{\mathrm{IV}4} + x^{\mathrm{V}4}) + 4(x'^5 + x''^5 + x'''^5 + x^{\mathrm{IV}5} + x^{\mathrm{V}5}) \\
+&\quad= 4n(-m^3 + 3mn - 3p) + 4m(m^4 - 4m^2 n + 4mp - 4q + 2n^2) \\
+&\quad\quad + 4[-m^5 + 5m^3 n - 5m^2 p + 5m(q - n^2) - 5r + 5np].
+\end{aligned}
+\]
+係数 \(A\) の最後の5項を求めるには，まず次の量
+\[
+\begin{aligned}
+&(x'x'')^2 + (x'x''')^2 + (x'x^{\mathrm{IV}})^2 + (x'x^{\mathrm{V}})^2 + (x''x''')^2 \\
++ & (x''x^{\mathrm{IV}})^2 + (x''x^{\mathrm{V}})^2 + (x'''x^{\mathrm{IV}})^2 + (x'''x^{\mathrm{V}})^2 + (x^{\mathrm{IV}}x^{\mathrm{V}})^2
+\end{aligned}
+\]
+を求める必要がある．この量を簡略に \(l\) と記す．
+ところで，\(n\) の値を2乗すると，
+\[
+\begin{aligned}
+n^2 &= l + 2n(x'^2 + x''^2 + x'''^2 + x^{\mathrm{IV}2} + x^{\mathrm{V}2})\,\,^{\text{[*1]}}\\
+&\quad + 2m(x'^3 + x''^3 + x'''^3 + x^{\mathrm{IV}3} + x^{\mathrm{V}3}) \\
+&\quad + 2(x'^4 + x''^4 + x'''^4 + x^{\mathrm{IV}4} + x^{\mathrm{V}4})\\
+&= l + 2n(m^2 - 2n) + 2m(-m^3 + 3mn - 3p) + 2(m^4 - 4m^2 n + 4mp - 4q + 2n^2),
+\end{aligned}
+\]
+したがって，
+\[
+\begin{aligned}
+l &= n^2 - 2n(m^2 - 2n) - 2m(-m^3 + 3mn - 3p) \\
+&\quad - 2(m^4 - 4m^2 n + 4mp - 4q + 2n^2).
+\end{aligned}
+\]
+これを用いれば，\(A\) の最後の5項は次のように表される：
+\[
+\begin{aligned}
+&6l(x' + x'' + x''' + x^{\mathrm{IV}} + x^{\mathrm{V}}) - 6(m^2 - m)(x'^3 + x''^3 + x'''^3 + x^{\mathrm{IV}3} + x^{\mathrm{V}3}) \\
+&\quad + 6(x'^5 + x''^5 + x'''^5 + x^{\mathrm{IV}5} + x^{\mathrm{V}5}) \\
+&= -6lm - 6(m^2 - m)(-m^3 + 3mn - 3p) \\
+&\quad + 6[-m^5 + 5m^3 n - 5m^2 p + 5m(q - n^2) - 5r + 5np].
+\end{aligned}
+\]
+以上すべてをまとめると，最終的に \(A\) は次のようになる：
+\[
+\begin{aligned}
+A &= -6mn(3n - 2m^2) + 2(8n + 3m^2)(-m^3 + 3mn - 3p) \\
+&\quad + 16m(m^4 - 4m^2 n + 4mp - 4q + 2n^2) \\
+&\quad + 10[-m^5 + 5m^3 n - 5m^2 p + 5m(q - n^2) - 5r + 5np].
+\end{aligned}
+\]</p>
+
+<p>同様の方法によって，\(z\) の方程式の他の係数 \(B, C, \dots\) の値も求めることができる．
+また，任意の方程式の根を2つずつ，あるいは3つずつ，…と組み合わせて，  
+それぞれを任意の冪に上げた積の総和を計算するための規則を用いれば，  
+この計算は大いに簡略化される．
+この規則は，クラメール氏がその著書『代数曲線解析序説（<cite>l'Introduction &agrave; l'Analyse des lignes courbes</cite>〔<cite>alg&eacute;briques</cite>〕）』の末尾で与えたものである．
+しかし，この詳細にはここでは立ち入らない．  
+というのも，それには非常に長大な計算を要するだけでなく，  
+5次方程式の解法に関しては何ら新たな光を投げかけるものではないからである．
+実際，\(z\) についての簡約方程式は6次であるため，  
+それが解けるのは，〔さらなる簡約化により〕その次数が5よりも低くできる場合に限られる．
+ところが，この方程式の根 \(z', z'', \dots\) の形状から判断するに，  
+そのような次数の低下はほとんど望めないように思われる．</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn74-1">\(+6q\)の項が落ちている．正しくは
+\(n^2= l + \textcolor{red}{6q}+ 2n(x'^2 + x''^2 + x'''^2 + x^{\mathrm{IV}2} + x^{\mathrm{V}2})+\dots.\)
+<p class="noindent">最終的な \(A=\cdots\) の式も間違っている．</p></li>
+  </ol>
+</div>
+
+<hr class="sep">
+
+<p><span class="bf">75</span>．第70項からここまで，われわれは与えられた方程式の次数 \(\mu\) が素数であるとしてきた．  
+ここでは，\(\mu\) が合成数である場合に何が起こるかを見てみよう．</p>
+
+<p>この場合，第59項およびそれに続く項の結論が成り立つのは，\(\nu, \varpi, \rho, \dots\) が \(\mu\) と互いに素なときに，\(\alpha\) の代わりに，\(\alpha^{\nu}, \alpha^{\varpi}, \alpha^{\rho}, \dots\) を代入する場合に限られることが，同様の議論で容易に示される．
+したがって，次のことが導かれる：</p>
+
+<p>1\(^\circ \,\) これらの指数 \(\nu, \varpi, \rho, \dots\)の個数を \(\lambda - 1\) とすれば，  
+一般に次数 \(1 \cdot 2 \cdot 3 \cdots (\mu - 1)\) の \(\theta\) についての方程式は，\(\frac{1 \cdot 2 \cdot 3 \cdots (\mu - 1)}{\lambda}\) 個の次数 \(\lambda\) の方程式
+\[
+\theta^{\lambda} - T \theta^{\lambda - 1} + U \theta^{\lambda - 2} - X \theta^{\lambda - 3} + \dots = 0
+\]
+に分解される．  
+ここで，係数 \(T, U, X, \dots\) はそれぞれ次数 \(\frac{1 \cdot 2 \cdot 3 \cdots (\mu - 1)}{\lambda}\) の方程式によって与えられる．</p>
+
+<p>2\(^\circ \,\) この \(\theta\) についての方程式の \(\lambda\) 個の根を \(\theta', \theta'', \theta''', \dots\) とすれば，  
+\(\frac{\sqrt[\mu]{\theta'}}{\mu}, \frac{\sqrt[\mu]{\theta''}}{\mu}, \frac{\sqrt[\mu]{\theta'''}}{\mu}, \dots\)
+は，係数 \(k, h, g, \dots, c, b\) のうち，\(k\) を始点として
+\(\mu\) と互いに素な番号 \(1, \nu, \varpi, \rho, \dots\) に対応するものの値を表す．  
+したがって，これらの係数は同一の方程式によって与えられることになる．</p>
+
+<p>3\(^\circ \,\) 第71項の方法を用いて \(T, V\,^{\text{[*1]}}, X, \dots\)を求めるには，  
+第57項の方程式 (\(g\)) を用いて \(y\) を消去するのではなく，  
+第60項の方法によって得られる方程式 (\(i\)) を用いなければならない．  
+この方程式の根は \(\alpha, \alpha^{\nu}, \alpha^{\varpi}, \alpha^{\rho}, \dots\) である．
+したがって，第72項の方法を用いてこれらの係数を求めたい場合には，  
+まず方程式 (\(i\)) に基づいて，\(\alpha, \alpha^{\nu}, \alpha^{\varpi}, \alpha^{\rho}, \dots\) の和，
+2乗の和，3乗の和，…を求め，それらを \(S', S'', S''', \dots\) と記す．
+ついで，多項式
+\[
+\xi + \alpha \xi' + \alpha^2 \xi'' + \alpha^3 \xi''' + \dots + \alpha^{\mu - 1} \xi^{\mu - 1}
+\]
+を2乗，3乗，…と累乗し，それぞれを
+\[
+\begin{aligned}
+&\xi_2 + \alpha \xi_2' + \alpha^2 \xi_2'' + \alpha^3 \xi_2''' + \dots, \\
+&\xi_3 + \alpha \xi_3' + \alpha^2 \xi_3'' + \alpha^3 \xi_3''' + \dots, \\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
+\end{aligned}
+\]
+と表せば，\(\theta', \theta'', \theta''', \dots\) の和，2乗の和，3乗の和，…は次のようになる：
+\[
+\begin{aligned}
+&\lambda \xi + S' \xi' + S'' \xi'' + S''' \xi''' + \dots, \\
+&\lambda \xi_2 + S' \xi_2' + S'' \xi_2'' + S''' \xi_2''' + \dots, \\
+&\lambda \xi_3 + S' \xi_3' + S'' \xi_3'' + S''' \xi_3''' + \dots, \\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
+\end{aligned}
+\]
+したがって，よく知られた公式により次のように得られる：
+\[
+\begin{aligned}
+T &= \lambda \xi + S' \xi' + S'' \xi'' + S''' \xi''' + \dots, \\[+5pt]
+U &= \frac{1}{2} T (\lambda \xi + S' \xi' + S'' \xi'' + \dots) - \frac{1}{2} (\lambda \xi_2 + S' \xi_2' + S'' \xi_2'' + \dots), \\[+5pt]
+X &= \frac{1}{3} U (\lambda \xi + S' \xi' + S'' \xi'' + \dots) - \frac{1}{3} T (\lambda \xi_2 + S' \xi_2' + S'' \xi_2'' + \dots) \\
+&\qquad\qquad\qquad\qquad\qquad\qquad\quad\,\,\,\, + \frac{1}{3} (\lambda \xi_3 + S' \xi_3' + S'' \xi_3'' + \dots), \\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots
+\end{aligned}
+\]</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn75-1">\(U\)であろう．</li>
+  </ol>
+</div>
+
+<hr class="sep">
+
+<p><span class="bf">76</span>．係数 \(k, h, g, \dots, c, b\) のうち，  
+その位置が \(\mu\) と通約可能な数によって示されるものの値を求めるために，  
+一般に \(\mu = \nu \varpi\) と仮定し，項の番号<a href="#fn76-1" class="footnote-ref">[*1]</a>が \(\nu\) の倍数であるような係数を求めるものとする．
+第68項で述べたことから，
+簡略のため，これらの係数を
+\[
+\frac{a^{(\nu)}}{\mu},\quad \frac{a^{(2\nu)}}{\mu},\quad \frac{a^{(3\nu)}}{\mu}, \dots
+\]
+と表し， \(\alpha^{\nu} = \omega\) とすれば，
+\[
+a^{(\nu)} = x' + \omega x'' + \omega^2 x''' + \omega^3 x^{\mathrm{IV}} + \dots + \omega^{\mu - 1} x^{(\mu)}
+\]
+であることは容易にわかる．
+また，他の量 \(a^{(2\nu)}, a^{(3\nu)}, \dots\) を得るには，  
+\(\omega\) を順次 \(\omega^2, \omega^3, \dots\) に置き換えればよい．</p>
+
+<p>第69項の手法にならい，
+\[
+t = x' + \omega x'' + \omega^2 x''' + \omega^3 x^{\mathrm{IV}} + \dots + \omega^{\mu - 1} x^{(\mu)}
+\]
+と置き，\(t\) についての方程式がどのような性質をもつべきかを調べよう．</p>
+
+<p>まず，\(\omega = \alpha^{\nu}\) であるから，
+\[
+\omega^{\varpi} = \alpha^{\varpi \nu} = \alpha^{\mu} = 1
+\]
+であり，これより，
+\[
+\omega^{\varpi + 1} = \omega,\quad \omega^{\varpi + 2} = \omega^2, \dots
+\]
+が得られることに着目する．一般に，\(1, \alpha, \alpha^2, \alpha^3, \dots, \alpha^{\mu - 1}\) は方程式
+\(y^{\mu} - 1 = 0\)
+の根であり，\(1, \omega, \omega^2, \omega^3, \dots, \omega^{\varpi - 1}\) は方程式
+\(y^{\varpi} - 1 = 0\)
+の根となる（第24項）．</p>
+
+<p>したがって，\(\omega^{\varpi-1}\) より高次の\(\omega\)の冪についてその次数を下げれば，\(t\) の式は次のように書き換えられる：
+\[
+t = z' + \omega z'' + \omega^2 z''' + \omega^3 z^{\mathrm{IV}} + \dots + \omega^{\varpi - 1} z^{(\varpi)}.
+\]
+ただし，ここでは次のように置いている．
+\begin{align*}
+&z'\,\,=\,x'\,\,+x^{(\varpi+1)}+x^{(2\varpi+1)}+\dots+x^{(\mu-\varpi+1)},\\
+&z''\,=x''\,+x^{(\varpi+2)}+x^{(2\varpi+2)}+\dots+x^{(\mu-\varpi+2)},\\
+&z'''=x'''+x^{(\varpi+3)}+x^{(2\varpi+3)}+\dots+x^{(\mu-\varpi+3)},\\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots,\\
+&z^{(\varpi)}=x^{(\varpi)}+x^{(2\varpi)}+x^{(3\varpi)}+\dots+x^{(\mu)}.
+\end{align*}</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn76-1">\(k, h, g, \dots\)の順に1番目，2番目，3番目，…とする．</li>
+  </ol>
+</div>
+
+<hr class="sep">
+
+<p><span class="bf">77</span>．さて，\(t\) についての方程式を一般的な形で考察すると，  
+\(\mu\) 個の根 \(x', x'', x''', \dots\) の間には \(1 \cdot 2 \cdot 3 \cdots \mu\) 通りの置換（順列）が存在し，  
+それぞれが \(t\) の個別の値を与えるはずであるから，  
+この方程式の次数は \(1 \cdot 2 \cdot 3 \cdots \mu\) になるはずである．
+しかし，これらの値の中に等しいものがあれば，それらを除外することで  
+\(t\) についての方程式の次数を下げることができる．  
+そして，まさにこのようなことが現在の状況で生じている．</p>
+
+<p>実際，\(z'\) は，根 \(x', x^{(\varpi + 1)}, x^{(2\varpi + 1)}, \dots\) の間で  
+どのような置換を施しても常に同じ値を保つことが明らかである．
+したがって，\(\nu\) 個のものには \(1 \cdot 2 \cdot 3 \cdots \nu\) 通りの置換（順列）があることから，  
+\(t\) の \(1 \cdot 2 \cdot 3 \cdots \mu\) 個の値はそれぞれ  
+\(1 \cdot 2 \cdot 3 \cdots \nu\) 回ずつ繰り返されることになる．
+よって，異なる値は
+\(\frac{1 \cdot 2 \cdot 3 \cdots \mu}{1 \cdot 2 \cdot 3 \cdots \nu}\)
+個を超えることはない．</p>
+
+<p>次に \(z''\) を考えると，同様の理由により，  
+それぞれの値もまた \(1 \cdot 2 \cdot 3 \cdots \nu\) 回ずつ繰り返されることが示される．
+これにより，\(t\) の異なる値の個数は
+\(\frac{1 \cdot 2 \cdot 3 \cdots \mu}{(1 \cdot 2 \cdot 3 \cdots \nu)^2}\)
+に減少する．</p>
+
+<p>他の量 \(z''', z^{\mathrm{IV}}, \dots, z^{(\varpi)}\) に対しても同様の推論を続けると，  
+最終的に \(t\) の異なる値の個数は
+\(\frac{1 \cdot 2 \cdot 3 \cdots \mu}{(1 \cdot 2 \cdot 3 \cdots \nu)^{\varpi}}\)
+である．
+したがって，\(t\) についての方程式の次数は\(\frac{1 \cdot 2 \cdot 3 \cdots \mu}{(1 \cdot 2 \cdot 3 \cdots \nu)^{\varpi}}\)にしかならない．</p>
+
+<hr class="sep">
+
+<p><span class="bf">78</span>．以上を前提として，先に得られた \(t\) の式を第69項のものと比較すれば，  
+それは \(z', z'', z''', \dots\) の間の置換に関して同様の考察が可能であることが容易にわかる．  
+これにより次の結論が導かれる．</p>
+
+<p>1\(^\circ\,\) \(\varpi\) が素数であると仮定すれば，\(t\) についての方程式は，
+\(t\) の冪のうち指数が \(\varpi\) の倍数であるもののみを含む．  
+したがって，\(t^{\varpi} = \theta\) とすれば，\(\theta\) についての方程式の次数は
+\(\frac{1 \cdot 2 \cdot 3 \cdots \mu}{\varpi (1 \cdot 2 \cdot 3 \cdots \nu)^{\varpi}}\)
+である．</p>
+
+<p>2\(^\circ\,\) この方程式は，常に\(\frac{1 \cdot 2 \cdot 3 \cdots \mu}{(\varpi - 1)\varpi (1 \cdot 2 \cdot 3 \cdots \nu)^{\varpi}}\) 個の，次の形の方程式に分解可能である．
+\[
+\theta^{\varpi - 1} - T \theta^{\varpi - 2} + U \theta^{\varpi - 3} - X \theta^{\varpi - 4} + \dots = 0.
+\]
+ここで，係数 \(T, U, \dots\) は，次数\(\frac{1 \cdot 2 \cdot 3 \cdots \mu}{(\varpi - 1)\varpi (1 \cdot 2 \cdot 3 \cdots \nu)^{\varpi}}\)の方程式によって与えられる．</p>
+
+<p>3\(^\circ\,\) 上記の方程式の\(\varpi - 1\) 個の根を \(\theta', \theta'', \theta''', \dots\) とすれば，
+\[
+\frac{\sqrt[\mu]{\theta'}}{\mu},\quad \frac{\sqrt[\mu]{\theta''}}{\mu},\quad \frac{\sqrt[\mu]{\theta'''}}{\mu}, \dots,\quad \frac{\sqrt[\mu]{\theta^{(\varpi - 1)}}}{\mu}
+\]
+は，係数 \(k, h, g, \dots, c, b\) のうち，その位置が \(\nu\) 番目，\(2\nu\) 番目，\(3\nu\) 番目，…，\((\mu - \nu)\) 番目にあるものの値を表す．  
+これは（係数 \(a, b, c, \dots, k\) は \(\mu\) 個なので），\(a, b, c, \dots, k\)においてそのような位置にある係数と言っても同じことである．</p>
+
+<p>4\(^\circ\,\) 係数 \(T, U, X, \dots\) の値を求めるには，第71項および第72項の方法を同様に用いることができる．
+その際にはすべての箇所で冪指数 \(\mu\) の代わりに \(\varpi\) を用いるよう注意しさえすればよい．</p>
+
+<p>5\(^\circ\,\) もし \(\varpi\) が素数でない場合には，\(\varpi\)の性質に応じて上記の結論に修正を加える必要がある． 
+それは第75項で用いたのと同様の考察によって容易に得られる．</p>
+
+<hr class="sep">
+
+<p><span class="bf">79</span>．以上の考察から明らかなように，  
+与えられた方程式の次数 \(\mu\) が合成数である場合，  
+係数 \(b, c, d, \dots\) は，\(\mu\) が素数であるときのように 
+すべてが同一の方程式の根となることはない．
+これらの係数は，列 \(a, b, c, d, \dots\) における位置を示す数と  
+\(\mu\) との最大公約数の違いに応じて，  
+それぞれ別の方程式に従うことになる．</p>
+
+<p>しかしながら，これらすべての異なる方程式を個別に求めて解く必要はない．  
+というのも，これらの係数は相互に依存しており，  
+1つの係数の値が得られれば，他のすべての係数の値も容易に導出できるからである．
+実際，第65項の方程式 (\(k\)) から \(y\) を方程式 \(y^{\mu} - 1 = 0\) を用いて消去し，  
+その結果得られる方程式を与えられた方程式と項別に比較すれば，  
+未定係数 \(a, b, c, \dots\) の数だけ方程式が得られ，  
+それらによって各係数を決定することができる．
+このとき，最初の係数 \(a\) は，他の未知数を含まない方程式によって与えられるが，  
+それ以外の未知係数 \(b, c, \dots\) は互いに混在して現れる． 
+そのため通常の消去法を用いることで，どれか1つの値によって，他の未知数の各々の値を表すことが可能となる．
+この点については，第58項で述べたのと同様の考察が適用される．</p>
+
+<hr class="sep">
+
+<p><span class="bf">80</span>．ベズー氏は，与えられた方程式の次数 \(\mu\) が合成数である場合に，  
+自身の方法の使用を簡易かつ容易にする目的で，  
+第一の方法よりもいくぶん一般的に見える第二の方法を提示している．  
+しかしながら，これから示すように，それは根本において第一の方法と同じものである．</p>
+
+<p>この方法によれば，与えられた方程式の次数 \(\mu\) が2つの数 \(\nu\) と \(\varpi\) の積\(\nu\varpi\)であるとき，  
+次の形の2つの方程式を用いる．
+\begin{equation}
+\tag{\(l\)}
+\left\{\begin{split}
+x^\nu&-(a\,\,+\,\,by\,\,+\,cy^2\,\,+\,\,dy^3\,+\dots+\,k\,y^{\varpi-1})\,x^{\nu-1}\\
+&+(a'\,+\,b'y\,+c'y^2\,+\,d'y^3+\dots+\,k'y^{\varpi-1})\,x^{\nu-2}\\
+&-(a''+b''y+c''y^2+d''y^3+\dots+k''y^{\varpi-1})\,x^{\nu-3}\\
+&\cdots\cdots\cdots\cdots\cdots\cdots\cdots\cdots\cdots\cdots\cdots\cdots\cdots\cdots\cdots\cdots\\
+&\pm[a^{(\nu-1)}+b^{(\nu-1)}y+c^{(\nu-1)}y^2+d^{(\nu-1)}y^3+\dots+k^{(\nu-1)}y^{\varpi-1}]=0,
+\end{split}\right.
+\end{equation}</p>
+<p>
+\[
+y^{\varpi} - 1 = 0.
+\]</p>
+
+<p>ここで\(y\) を消去すれば，\(x\) についての次数\(\nu\varpi\)の最終方程式が得られる．
+これを与えられた方程式と項別に比較すれば，  
+係数 \(a, b, c, \dots, a', b', c', \dots\) の間に\(\nu\varpi\)個の個別の方程式が得られる．  
+これらの係数の数もまた \(\nu \varpi\) 個であるから，  
+これによって各係数を決定することができるのである．</p>
+
+<p>また，方程式 \(y^{\varpi} - 1 = 0\) は \(y\) に対して \(\varpi\) 個の値を与えるので，  
+それらを順次代入することにより，\(x\) について次数 \(\nu\)の方程式が \(\varpi\) 個得られる．
+これにより，\(x\) の値は \(\mu \nu\)個<a href="#fn81-1" class="footnote-ref">[*1]</a>得られ，  
+それらが与えられた方程式の根となる．</p>
+
+<p>第13項で述べた消去理論によれば，  
+上記の2つの方程式から \(y\) を消去して得られる方程式は，  
+\(y\) に方程式 \(y^{\varpi} - 1 = 0\) の根を代入して得られるすべての方程式 (\(l\)) の積にほかならない．
+このことから，この方法の本質は，  
+与えられた方程式を，次数 \(\varpi\) の方程式 \(y^{\varpi} - 1 = 0\) を用いて，  
+\(\varpi\)個の \(\nu\) 次方程式に分解することにあるとわかる．</p>
+
+<p>すべての困難は，未知係数 \(a, b, c, \dots, a', b', c', \dots\) の決定にある．  
+したがって，これらの量を決定する方程式がどのような性質をもつべきかを，アプリオリに検討することが有益である．</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn81-1">「\(\nu\varpi\)個」あるいは「\(\mu\)個」の誤りであろう．</li>
+  </ol>
+</div>
+
+<hr class="sep">
+
+<p><span class="bf">81</span>．そこで，与えられた次数 \(\mu = \nu \varpi\) の方程式の根を \(x', x'', x''', \dots\)とし，  
+この方程式が次のような \(\varpi\) 個の方程式の積であるとする：
+\begin{align*}
+&x^{\nu}-\,\,z'\,\,\,x^{\nu-1}+\,\,\,u'\,\,\,x^{\nu-2}-\,\,\,v'\,\,x^{\nu-3}+\dots=0,\\
+&x^{\nu}-\,\,z''\,\,x^{\nu-1}+\,\,\,u''\,\,x^{\nu-2}-\,\,v''\,x^{\nu-3}+\dots=0,\\
+&x^{\nu}-\,\,z'''\,x^{\nu-1}+\,\,u'''\,x^{\nu-2}-\,\,v'''\,x^{\nu-3}+\dots=0,\\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots,\\
+&x^{\nu}-z^{(\varpi)}x^{\nu-1}+u^{(\varpi)}x^{\nu-2}-v^{(\varpi)}x^{\nu-3}+\dots=0.
+\end{align*}
+これらの各方程式には，与えられた方程式の根のうち\(\nu\) 個を根として持たなければならない．  
+そこで，\(\mu\) 個の根 \(x', x'', x''', \dots, x^{(\mu)}\) を  
+それぞれ \(\nu\) 個ずつの根からなる \(\varpi\) 個の組に分ける．たとえば，
+\[
+\begin{array}{lllll}
+x', & x^{(\varpi + 1)}, & x^{(2\varpi + 1)}, & \dots, &x^{(\mu - \varpi + 1)}, \\
+x'', & x^{(\varpi + 2)}, & x^{(2\varpi + 2)}, & \dots, &x^{(\mu - \varpi + 2)}, \\
+x''', & x^{(\varpi + 3)}, & x^{(2\varpi + 3)}, & \dots, &x^{(\mu - \varpi + 3)}, \\
+\cdots&\cdots&\cdots&\cdots&\cdots \\
+x^{(\varpi)},& x^{(2\varpi)},& x^{(3\varpi)},& \dots, & x^{(\mu)}.
+\end{array}
+\]
+すると方程式の性質から，\(z'\) は根 \(x', x^{(\varpi + 1)}, x^{(2\varpi + 1)}, \dots, x^{(\mu - \varpi + 1)}\) の和，  
+\(u'\) はそれらの根の2つずつの積の和，\(v'\) は3つずつの積の和，…となる．
+同様に，\(z''\) は根 \(x'', x^{(\varpi + 2)}, x^{(2\varpi + 2)}, \dots, x^{(\mu - \varpi + 2)}\) の和，  
+\(u''\) はそれらの2つずつの積の和，\(v''\) は3つずつの積の和，…等々以下同様である．</p>
+
+<p>さて，方程式 \(y^{\varpi} - 1 = 0\) の根を \(1, \omega, \varphi, \psi, \dots\) とすれば，  
+次のようになる（第80項）：
+\[
+\begin{aligned}
+&a + b + c + d + \dots + k = z', \\
+&a + b\omega + c\omega^2 + d\omega^3 + \dots + k\omega^{\varpi - 1} = z'', \\
+&a + b\varphi + c\varphi^2 + d\varphi^3 + \dots + k\varphi^{\varpi - 1} = z''', \\
+&\dots \dots \dots \dots \dots \dots \dots \dots \dots\dots\dots\dots\dots,
+\end{aligned}
+\]
+また同様に，
+\[
+\begin{aligned}
+&a' + b' + c' + d' + \dots + k' = u', \\
+&a' + b'\omega + c'\omega^2 + d'\omega^3 + \dots + k'\omega^{\varpi - 1} = u'', \\
+&a' + b'\varphi + c'\varphi^2 + d'\varphi^3 + \dots + k'\varphi^{\varpi - 1} = u''', \\
+&\dots \dots \dots \dots \dots \dots \dots \dots \dots\dots\dots\dots\dots\dots,
+\end{aligned}
+\]
+…等々以下同様である．</p>
+
+<p>ところで，方程式 \(y^{\varpi} - 1 = 0\) は中間項を欠いているため，次の式が成り立つ：
+\[
+\begin{aligned}
+&1 + \omega + \varphi + \psi + \dots = 0, \\
+&1 + \omega^2 + \varphi^2 + \psi^2 + \dots = 0, \\
+&1 + \omega^3 + \varphi^3 + \psi^3 + \dots = 0, \\
+&\dots \dots \dots \dots \dots \dots \dots \dots \dots
+\end{aligned}
+\]
+したがって，第67項で用いたのと同様の手法によって，  
+\(a, b, c, \dots, k\)，\(a', b', c', \dots, k'\)，\(a'', b'', c'', \dots, k''\)，… の値を求めることができる．
+その結果は次の通りである．
+\[
+\begin{aligned}
+&\varpi a = z' + z'' + z''' + \dots + z^{(\varpi)}, \\
+&\varpi b = z' + \omega^{\varpi - 1} z'' + \varphi^{\varpi - 1} z''' + \dots, \\
+&\varpi c = z' + \omega^{\varpi - 2} z'' + \varphi^{\varpi - 2} z''' + \dots, \\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots,
+\end{aligned}
+\]
+続いて，
+\[
+\begin{aligned}
+&\varpi a' = u' + u'' + u''' + \dots + u^{(\varpi)}, \\
+&\varpi b' = u' + \omega^{\varpi - 1} u'' + \varphi^{\varpi - 1} u''' + \dots, \\
+&\varpi c' = u' + \omega^{\varpi - 2} u'' + \varphi^{\varpi - 2} u''' + \dots, \\
+&\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots\dots,
+\end{aligned}
+\]
+…等々以下同様である．</p>
+
+<hr class="sep">
+
+<p><span class="bf">82</span>．係数 \(a, b, c, \dots, k\) の値を検討しよう．
+まず明らかなのは，\(\varpi a\) の値がすべての根 \(x', x'', x''', \dots, x^{(\mu)}\) の和に等しくなることである．  
+したがって，\(\varpi a = -m\) なので，
+\(a = -\frac{m}{\varpi}\)．</p>
+ 
+<p>次に，\(\omega^2, \omega^3, \dots\) を \(\varphi, \psi, \dots\) の代わりに用いて，  
+方程式 \(y^{\varpi} - 1 = 0\) の根を \(1, \omega, \omega^2, \omega^3, \dots, \omega^{\varpi - 1}\)（第24項）と表すと，  
+次の式が得られる．
+\[
+\varpi k = z' + \omega z'' + \omega^2 z''' + \omega^3 z^{\mathrm{IV}} + \dots + \omega^{\varpi - 1} z^{(\varpi)}.
+\]
+そして，\(\varpi h, \varpi g, \dots\) の値を得るには，この式において \(\omega\) を順次 \(\omega^2, \omega^3, \dots\) に置き換えればよい．</p>
+
+<p>ところで，この \(\varpi k\) の式は，第76項の量 \(a^{(\nu)}\) あるいは \(t\) の式と同じである．  
+したがって，\(\varpi h, \varpi g, \dots\) の式も第76項の量 \(a^{(2\nu)}, a^{(3\nu)}, \dots\) と同じになる．
+このことから，次の結論を導くのは容易である．  
+第80項の方程式 (\(l\)) における係数 \(a, b, c, d, \dots\) を \(\varpi\) 倍したものは，  
+それぞれ第65項の方程式 (\(k\)) における係数 \(a, b, c, \dots\) において，  
+\(1, \nu, 2\nu, 3\nu, \dots, (\mu - \nu)\) 番目の位置を占める各係数を \(\mu\) 倍したものにそれぞれ等しい．</p>
+ 
+<p>それゆえ，上記の式に現れる係数 \(a, b, c, \dots\) に対して，  
+第76項以降で得られた結論をそのまま適用することができる．</p>
+
+<hr class="sep">
+
+<p><span class="bf">83</span>．同じ式 (\(l\)) に現れる他の係数 \(a', b', c', \dots, a'', b'', c'', \dots\) については，  
+第79項と同様の考察により，それらを先の係数<a href="#fn83-1" class="footnote-ref">[*1]</a>，あるいはそのうちの任意の1つに依存させることも可能である．  
+また，第81項の式に基づいて，それぞれの係数が直接依存する方程式の次数と形を  
+アプリオリに決定することもできる．</p>
+
+<p>この目的のためには，\(u', u'', u''', \dots\) の各量が，対応する \(z', z'', z''', \dots\) の各量と同様に，同じ根の関数であり，それらの根の間でどのような置換を施しても不変であるという性質を持つことに注意すれば十分である．  
+\(v', v'', v''', \dots\) についても同様である．
+したがって，係数 \(b', c', d', \dots, b'', c'', d'', \dots\) に対しては，  
+係数 \(b, c, d, \dots\) に関して行ったのと同様の議論と結論<a href="#fn83-2" class="footnote-ref">[*2]</a>を適用することができる．</p>
+
+<p>しかし，係数 \(a', a'', \dots\) に関しては別途考察が必要である．  
+第77項と同様の推論によって，これらの各量が  
+\(\frac{1 \cdot 2 \cdot 3 \cdots \mu}{(1 \cdot 2 \cdot 3 \cdots \nu)^{\varpi}}\)
+個の異なる値しか持たないことを示した上で， さらに次のことに着目する．
+すなわち，これらの量は \(u', u'', u''', \dots, u^{(\varpi)}\) や  
+\(v', v'', v''', \dots, v^{(\varpi)}\) などの間の置換によっていかなる変化も受けない．それゆえ，係数 \(a', a'', \dots\) の異なる値の個数を得るには，\(\frac{1 \cdot 2 \cdot 3 \cdots \mu}{(1 \cdot 2 \cdot 3 \cdots \nu)^{\varpi}}\)をさらに
+\(1 \cdot 2 \cdot 3 \cdots \varpi\)
+で割る必要がある．
+したがって，これらの係数はそれぞれ，次数
+\[
+\frac{1 \cdot 2 \cdot 3 \cdots \mu}{1 \cdot 2 \cdot 3 \cdots \varpi \, (1 \cdot 2 \cdot 3 \cdots \nu)^{\varpi}}
+\]
+の特定の方程式によって決定されることになる．</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn83-1">\(b,c,\dots\)のこと（\(a\) は他の係数とは関係なく確定するので除く）．</li>
+    <li id="fn83-2">具体的には，たとえば \(b', c', \dots\) についてなら \(t=u' + \omega^{\varpi - 1} u'' + \varphi^{\varpi - 1} u''' + \dots\)とおくことで第78項の結論が\(3^\circ\)を除いて同様に成り立つ．</li>
+  </ol>
+</div>
+
+<hr class="sep">
+
+<p><span class="bf">84</span>．与えられた方程式の次数が偶数であると仮定し，\(\varpi = 2\) とすれば，\(\mu = 2\nu\) となる．  
+この場合，方程式 \(y^{\varpi} - 1 = 0\) は次のようになる：
+\[
+y^2 - 1 = 0.
+\]
+これより2つの根
+\[
+y = 1 \quad \text{および} \quad y = -1
+\]
+が得られる．
+したがって，前述の方法に従えば，与えられた方程式
+\[
+x^{2\nu} + m x^{2\nu - 1} + n x^{2\nu - 2} + p x^{2\nu - 3} + \dots = 0
+\]
+は，次の2式の積となる：
+\[
+\begin{aligned}
+&x^{\nu} - (a + b) x^{\nu - 1} + (a' + b') x^{\nu - 2} - (a'' + b'') x^{\nu - 3} + \dots = 0, \\
+&x^{\nu} - (a - b) x^{\nu - 1} + (a' - b') x^{\nu - 2} - (a'' - b'') x^{\nu - 3} + \dots = 0.
+\end{aligned}
+\]
+これより，
+\[
+a = -\frac{m}{2} \quad \text{および} \quad b = \frac{z' - z''}{2}
+\]
+が得られる．ここで，
+\[
+\begin{aligned}
+z' &= x' + x''' + x^{\mathrm{V}} + \dots + x^{(2\nu - 1)}, \\
+z'' &= x'' + x^{\mathrm{IV}} + x^{\mathrm{VI}} + \dots + x^{(2\nu)}
+\end{aligned}
+\]
+である．また，\(b\) についての方程式の次数は，
+\[
+\frac{1 \cdot 2 \cdot 3 \cdots 2\nu}{(1 \cdot 2 \cdot 3 \cdots \nu)^2}
+\quad \text{すなわち} \quad
+\frac{(\nu + 1)(\nu + 2)(\nu + 3) \cdots 2\nu}{1 \cdot 2 \cdot 3 \cdots \nu}
+\]
+となり，すべての冪指数は偶数となる．</p>
+
+<p>ゆえに，もし与えられた方程式が次のような \(\nu\)次 の因数をもつと仮定すれば：
+\[
+x^{\nu} + m' x^{\nu - 1} + n' x^{\nu - 2} + p' x^{\nu - 3} + \dots = 0,
+\]
+係数 \(m'\) についての方程式の次数は次のようになる：
+\[
+\frac{(\nu + 1)(\nu + 2)(\nu + 3) \cdots (2\nu)}{1 \cdot 2 \cdot 3 \cdots \nu}.
+\]
+この数は，\(2\nu\) 個の対象から \(\nu\) 個を選ぶ組合せの数を表していることでも，つじつまが合っている．</p>
+ 
+<p>また，
+\[-m' = a + b = -\frac{m}{2} + b\]
+とすれば，  
+\(b\) についての方程式は偶数冪のみを含むので，  
+\(m'\) についての方程式は，その第2項を消去すれば，  
+1つおきの項が同時に消えるような性質を持つことになる．  
+これは，4次方程式に関して第35項で見た性質と同様である．</p>
+
+<hr class="sep">
+
+<p><span class="bf">85</span>．与えられた方程式が6次であるとし，\(\nu = 3\) とすれば，  
+\(4b^2 = \theta\) と置くことで，\(\theta\) についての方程式の次数は，
+\[
+\frac{4 \cdot 5 \cdot 6}{2 \times 1 \cdot 2 \cdot 3} = 10
+\]
+となる．</p>
+
+<p>ベズー氏は，この方程式が2次方程式を用いて2つの方程式に分解できると考えているが，  
+私はそれには強く疑問を抱く．
+実際，\(\theta\) についての方程式の根は以下の10個の量によって表されるが，  
+これらは，  
+6つの根 \(x', x'', x''', \dots\) の置換から生じる \((z' - z'')^2\) のすべての値である：
+\[
+\begin{aligned}
+&(x' + x'' + x''' - x^{\mathrm{IV}} - x^{\mathrm{V}} - x^{\mathrm{VI}})^2, \\
+&(x' + x'' + x^{\mathrm{IV}} - x''' - x^{\mathrm{V}} - x^{\mathrm{VI}})^2, \\
+&(x' + x'' + x^{\mathrm{V}} - x^{\mathrm{IV}} - x''' - x^{\mathrm{VI}})^2, \\
+&(x' + x'' + x^{\mathrm{VI}} - x^{\mathrm{IV}} - x^{\mathrm{V}} - x''')^2, \\
+&(x' + x^{\mathrm{IV}} + x''' - x'' - x^{\mathrm{V}} - x^{\mathrm{VI}})^2, \\
+&(x' + x^{\mathrm{V}} + x''' - x^{\mathrm{IV}} - x'' - x^{\mathrm{VI}})^2, \\
+&(x' + x^{\mathrm{VI}} + x''' - x^{\mathrm{IV}} - x^{\mathrm{V}} - x'')^2, \\
+&(x' + x^{\mathrm{IV}} + x^{\mathrm{V}} - x'' - x''' - x^{\mathrm{VI}})^2, \\
+&(x' + x^{\mathrm{IV}} + x^{\mathrm{VI}} - x'' - x''' - x^{\mathrm{V}})^2, \\
+&(x' + x^{\mathrm{V}} + x^{\mathrm{VI}} - x'' - x''' - x^{\mathrm{IV}})^2.
+\end{aligned}
+\]</p>
+ 
+<p>さて，もしこの方程式の2つの因子が次のように表せると仮定しよう．
+\begin{align*}
+&\theta^5-\,f\theta^4\,+\,g\theta^3-\,h\theta^2\,+\,i\theta-\,k\,=0,\\
+&\theta^5-f'\theta^4+g'\theta^3-h'\theta^2+i'\theta-k'=0.
+\end{align*}
+このとき，\(f\) は上記10個の量のうち5個の和に等しく，  
+\(f'\) は残りの5個の和に等しくなければならない．
+そして，\(f\) および \(f'\) が 2次の根号のみによって解かれるためには，これらの係数が，
+\[
+y^2 - {M} y + {N} = 0
+\]
+のような2次方程式の根である必要がある．
+ここで，\({M}\) および \({N}\) は与えられた方程式の係数 \(m, n, p, \dots\) の  
+有理関数である．
+したがって，
+\[
+{M} = f + f' \quad \text{および} \quad {N} = f f'
+\]
+となる．
+つまり，\(f\) および \(f'\) の和と積の両方が，係数 \(m, n, p, \dots\) の  
+有理関数である必要があり，したがって，両者は，根 \(x', x'', x''', \dots\) の  
+どのような置換によっても値が変化しない関数でなければならない．
+この条件は，和 \(f + f'\) に関しては満たされる．  
+というのも，それは上記10個の量すべての和に等しいからである．
+しかし，積 \(f f'\) に関してはそうではない．  
+これら10個の量をどのように2つの部分和（各5個）に分けたとしても，  
+それらの積は，根 \(x', x'', x''', \dots\) のあらゆる置換によって  
+不変であるという性質を持つことは決してないことが容易に確かめられるからである．</p>
+
+<p>あるいは，\(f\) および \(f'\) が同一の2次方程式の根である必要はなく，  
+それぞれが別の方程式に従うという考え方もあるかもしれない．
+しかし，この例外的な想定を退けるには，以下のように考えれば十分である．\(f\) がある2次方程式
+\[
+f^2 - {M} f + {N} = 0
+\]
+によって決定されるとする．この方程式の2つの根は，いずれも上記10個の量のうちいずれか5個の和でなければならない<a href="#fn85-1" class="footnote-ref">[*1]</a>．
+その2つの和の合計が，根 \(x', x'', x''', \dots\) の置換によって  
+不変な量 \({M}\) を与える必要がある．
+この条件が満たされるためには，その2つの和が  
+上記10個の量すべてを含んでいなければならない．
+したがって，一方が5個の和であるならば，  
+他方は必然的に残りの5個の和でなければならないのである．</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn85-1">片方がそうなら，それに対し\(x',x'',\dots\)の置換を施したものも解になるため．</li>
+  </ol>
+</div>
+
+<hr class="legacy-hr">
+
+<nav class="pager">
+  <a href="lag_sec_3_1.html">← 第III節（前半）</a>
+  <a href="index.html">トップページ</a>
+  <a href="lag_sec_4_1.html">第IV節（前半）→</a>
+</nav>
+
+</body>
+</html>
